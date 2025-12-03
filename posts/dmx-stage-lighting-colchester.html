@@ -225,122 +225,130 @@
               </li>
             </ul>
 
-            <h2>Technical note (for electricians and tech managers)</h2>
-            <h3>Band I vs Band II segregation – BS 7671 Reg 528.1</h3>
-            <p>
-              In BS 7671:2018+A2:2022, DMX control lines are typically treated
-              as Band I extra-low-voltage signalling/control, while 230 V
-              lighting and power circuits are Band II.
-            </p>
-            <p>
-              Regulation 528.1 covers the segregation of circuits of different
-              bands. In short:
-            </p>
-            <ul>
-              <li>
-                Band I and Band II circuits shouldn’t share a wiring system
-                unless all conductors are insulated for the highest voltage
-                present,
-              </li>
-              <li>
-                or they are separated by an earthed metal screen or partition,
-              </li>
-              <li>
-                or they are installed in separate compartments / otherwise
-                physically segregated.
-              </li>
-            </ul>
-            <p>In this installation:</p>
-            <ul>
-              <li>
-                Band II (230 V) and Band I (ELV DMX) conductors shared the same
-                back box and faceplate.
-              </li>
-              <li>
-                There was no partition or compartmentalisation within the box.
-              </li>
-              <li>
-                The ELV terminations were DIY spades and XLR tails not designed
-                as LV accessories.
-              </li>
-              <li>
-                The only “separation” was 20–40 mm of air and basic insulation –
-                easily defeated by a loose spade connector or someone pushing
-                cables back into the box.
-              </li>
-            </ul>
-            <p>
-              On that basis, it’s hard to argue that the requirements of Reg
-              528.1 for segregation between Band I and Band II circuits were
-              being met.
-            </p>
+            <aside class="article-note article-note--technical">
+              <p class="article-note-label">
+                Technical note · For electricians and tech managers
+              </p>
 
-            <h3>SELV/PELV principles – Section 414</h3>
-            <p>
-              Where ELV circuits are provided as SELV/PELV systems, Section 414
-              of BS 7671 applies. In simple terms, SELV/PELV circuits should be:
-            </p>
-            <ul>
-              <li>
-                Protectively separated from LV circuits (double/reinforced
-                insulation, or basic insulation plus an earthed screen/barrier),
-              </li>
-              <li>
-                Arranged such that a single fault on the LV side cannot make the
-                SELV/PELV parts live,
-              </li>
-              <li>
-                Verified (e.g. by insulation resistance) as being sufficiently
-                separated from other circuits and, for SELV, from earth.
-              </li>
-            </ul>
-            <p>
-              In a shared back box with no partition, basic insulation only and
-              loose terminations, you can’t realistically claim the kind of
-              protective separation that Section 414 is aiming at. A single
-              loose 230 V conductor could energise the ELV terminals or the
-              shell of an XLR connector.
-            </p>
-            <p>
-              Even if the DMX gear is technically FELV rather than SELV/PELV,
-              the principle is the same: either you treat it as LV (and design
-              everything accordingly), or you keep it properly segregated from
-              LV.
-            </p>
+              <h3>Band I vs Band II segregation – BS 7671 Reg 528.1</h3>
+              <p>
+                In BS 7671:2018+A2:2022, DMX control lines are typically treated
+                as Band I extra-low-voltage signalling/control, while 230 V
+                lighting and power circuits are Band II.
+              </p>
+              <p>
+                Regulation 528.1 covers the segregation of circuits of different
+                bands. In short:
+              </p>
+              <ul>
+                <li>
+                  Band I and Band II circuits shouldn’t share a wiring system
+                  unless all conductors are insulated for the highest voltage
+                  present,
+                </li>
+                <li>
+                  or they are separated by an earthed metal screen or partition,
+                </li>
+                <li>
+                  or they are installed in separate compartments / otherwise
+                  physically segregated.
+                </li>
+              </ul>
+              <p>In this installation:</p>
+              <ul>
+                <li>
+                  Band II (230 V) and Band I (ELV DMX) conductors shared the
+                  same back box and faceplate.
+                </li>
+                <li>
+                  There was no partition or compartmentalisation within the box.
+                </li>
+                <li>
+                  The ELV terminations were DIY spades and XLR tails not
+                  designed as LV accessories.
+                </li>
+                <li>
+                  The only “separation” was 20–40 mm of air and basic insulation
+                  – easily defeated by a loose spade connector or someone
+                  pushing cables back into the box.
+                </li>
+              </ul>
+              <p>
+                On that basis, it’s hard to argue that the requirements of Reg
+                528.1 for segregation between Band I and Band II circuits were
+                being met.
+              </p>
 
-            <h3>How I’d describe it on inspection</h3>
-            <p>
-              In inspection/reporting terms in a public building, I’d typically
-              reference:
-            </p>
-            <ul>
-              <li>
-                Reg 528.1 – segregation of Band I/Band II circuits sharing the
-                same enclosure.
-              </li>
-              <li>
-                Section 414 – separation principles for SELV/PELV-type circuits
-                from LV.
-              </li>
-            </ul>
-            <p>Example wording:</p>
-            <p>
-              <em
-                >“LV lighting circuits and ELV control (DMX/XLR) share back
-                boxes and faceplates with no internal partition. DIY
-                terminations and basic insulation only, approx. 20–40 mm
-                separation between Band II and Band I conductors. Does not meet
-                BS 7671 requirements for segregation of Band I/Band II circuits
-                (Reg 528.1) or the separation principles for SELV/PELV-type
-                circuits from LV (Section 414). Risk that LV could appear on ELV
-                connectors under a single fault. Recommend replacement with
-                compliant accessories and separated wiring systems.”</em
-              >
-            </p>
-            <p>
-              Coding wise, I’d be comfortable with a C2 (“potentially dangerous”
-              – urgent remedial work required).
-            </p>
+              <h3>SELV/PELV principles – Section 414</h3>
+              <p>
+                Where ELV circuits are provided as SELV/PELV systems, Section
+                414 of BS 7671 applies. In simple terms, SELV/PELV circuits
+                should be:
+              </p>
+              <ul>
+                <li>
+                  Protectively separated from LV circuits (double/reinforced
+                  insulation, or basic insulation plus an earthed
+                  screen/barrier),
+                </li>
+                <li>
+                  Arranged such that a single fault on the LV side cannot make
+                  the SELV/PELV parts live,
+                </li>
+                <li>
+                  Verified (e.g. by insulation resistance) as being sufficiently
+                  separated from other circuits and, for SELV, from earth.
+                </li>
+              </ul>
+              <p>
+                In a shared back box with no partition, basic insulation only
+                and loose terminations, you can’t realistically claim the kind
+                of protective separation that Section 414 is aiming at. A single
+                loose 230 V conductor could energise the ELV terminals or the
+                shell of an XLR connector.
+              </p>
+              <p>
+                Even if the DMX gear is technically FELV rather than SELV/PELV,
+                the principle is the same: either you treat it as LV (and design
+                everything accordingly), or you keep it properly segregated from
+                LV.
+              </p>
+
+              <h3>How I’d describe it on inspection</h3>
+              <p>
+                In inspection/reporting terms in a public building, I’d
+                typically reference:
+              </p>
+              <ul>
+                <li>
+                  Reg 528.1 – segregation of Band I/Band II circuits sharing the
+                  same enclosure.
+                </li>
+                <li>
+                  Section 414 – separation principles for SELV/PELV-type
+                  circuits from LV.
+                </li>
+              </ul>
+              <p>Example wording:</p>
+              <p>
+                <em
+                  >“LV lighting circuits and ELV control (DMX/XLR) share back
+                  boxes and faceplates with no internal partition. DIY
+                  terminations and basic insulation only, approx. 20–40 mm
+                  separation between Band II and Band I conductors. Does not
+                  meet BS 7671 requirements for segregation of Band I/Band II
+                  circuits (Reg 528.1) or the separation principles for
+                  SELV/PELV-type circuits from LV (Section 414). Risk that LV
+                  could appear on ELV connectors under a single fault. Recommend
+                  replacement with compliant accessories and separated wiring
+                  systems.”</em
+                >
+              </p>
+              <p>
+                Coding wise, I’d be comfortable with a C2 (“potentially
+                dangerous” – urgent remedial work required).
+              </p>
+            </aside>
 
             <h2>Need help with stage or feature lighting in Colchester?</h2>
             <p>

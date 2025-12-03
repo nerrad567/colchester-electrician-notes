@@ -636,6 +636,65 @@ a {
   cursor: default;
 }
 
+/* --- Article technical note aside --- */
+
+.article-body {
+  position: relative;
+}
+
+/* clear any floated asides */
+.article-body::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.article-note {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg, 16px);
+  background: var(--bg-elevated, #0d0d0d);
+  border: 1px solid var(--border, #222);
+  box-shadow: var(--shadow-soft, 0 12px 30px rgba(0, 0, 0, 0.7));
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted, #a0a0a0);
+}
+
+.article-note h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.02rem;
+}
+
+.article-note p:last-child {
+  margin-bottom: 0;
+}
+
+.article-note-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--muted, #a0a0a0);
+  opacity: 0.85;
+}
+
+/* “Technical” aside: right-aligned card on larger screens */
+.article-note--technical {
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+@media (min-width: 960px) {
+  .article-note--technical {
+    float: right;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+
 /* tidy on small screens: rely on swipe, hide buttons */
 @media (max-width: 640px) {
   .articles-scroll-btn {
