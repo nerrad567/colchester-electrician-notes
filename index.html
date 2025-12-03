@@ -9,6 +9,7 @@
       content="Notes from a working Colchester electrician – real jobs, EICRs, consumer units and fault finding around Colchester. Written by Gray Logic Electrical."
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="canonical" href="https://www.colchester-electrician.com/" />
   </head>
   <body>
     <div class="page">
@@ -77,66 +78,115 @@
             </p>
           </header>
 
-          <div class="articles-grid">
-            <!-- Article 1 -->
-            <article class="card card-article">
-              <header class="card-header">
-                <p class="card-kicker">EICR · Colchester</p>
-                <h3 class="card-title">
-                  <a href="posts/eicr-in-colchester.html">
-                    What actually happens on an EICR in Colchester?
-                  </a>
-                </h3>
-              </header>
-              <p class="card-excerpt">
-                Estate agent says “we just need an EICR”. Here’s what I actually
-                do on site, what I look for in older properties around
-                Colchester, and why “no issues found” almost never means
-                nothing’s wrong.
-              </p>
-              <footer class="card-footer">
-                <span class="card-meta">~6 min read</span>
-                <a href="posts/eicr-in-colchester.html" class="card-link"
-                  >Read note →</a
-                >
-              </footer>
-            </article>
+          <!-- NEW: horizontally scrollable rail with left/right buttons -->
+          <div class="articles-scroller" data-articles-scroller>
+            <button
+              class="articles-scroll-btn articles-scroll-btn--prev"
+              type="button"
+              aria-label="Scroll left"
+            >
+              ‹
+            </button>
 
-            <!-- Placeholder future articles -->
-            <article class="card card-article card-article--placeholder">
-              <header class="card-header">
-                <p class="card-kicker">Fault finding · Terraced house</p>
-                <h3 class="card-title">
-                  A tripping RCD in a Colchester terrace – where the fault
-                  actually was
-                </h3>
-              </header>
-              <p class="card-excerpt">
-                Upcoming note: a real fault-finding job in a typical Colchester
-                terrace and why “just change the breaker” is almost never the
-                right answer.
-              </p>
-              <footer class="card-footer">
-                <span class="card-meta">Coming soon</span>
-              </footer>
-            </article>
+            <div class="articles-grid" data-articles-track>
+              <!-- Article 1 -->
+              <article class="card card-article">
+                <header class="card-header">
+                  <p class="card-kicker">EICR · Colchester</p>
+                  <h3 class="card-title">
+                    <a href="posts/eicr-in-colchester.html">
+                      What actually happens on an EICR in Colchester?
+                    </a>
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  Estate agent says “we just need an EICR”. Here’s what I
+                  actually do on site, what I look for in older properties
+                  around Colchester, and why “no issues found” almost never
+                  means nothing’s wrong.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">~6 min read</span>
+                  <a href="posts/eicr-in-colchester.html" class="card-link"
+                    >Read note →</a
+                  >
+                </footer>
+              </article>
 
-            <article class="card card-article card-article--placeholder">
-              <header class="card-header">
-                <p class="card-kicker">Consumer units · Upgrades</p>
-                <h3 class="card-title">
-                  Your consumer unit looks fine – here’s why it still failed
-                </h3>
-              </header>
-              <p class="card-excerpt">
-                Upcoming note: cosmetic “after” photos don’t show test results,
-                protective devices or design decisions. A quick look behind the
-                front cover.
-              </p>
-              <footer class="card-footer">
-                <span class="card-meta">Coming soon</span>
-              </footer>
-            </article>
+              <!-- Article 2: DMX job -->
+              <article class="card card-article">
+                <header class="card-header">
+                  <p class="card-kicker">DMX lighting · Public building</p>
+                  <h3 class="card-title">
+                    <a href="posts/dmx-stage-lighting-colchester.html">
+                      DMX stage lighting faults in a Colchester public building
+                    </a>
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  A public venue with “possessed” stage lights: intermittent
+                  DMX, lost addresses and a desk that kept forgetting its show.
+                  Fault-finding the control side and picking up non-compliant AV
+                  wiring under BS 7671.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">~8 min read</span>
+                  <a
+                    href="posts/dmx-stage-lighting-colchester.html"
+                    class="card-link"
+                    >Read note →</a
+                  >
+                </footer>
+              </article>
+
+              <!-- Placeholder future article 1 -->
+              <article class="card card-article card-article--placeholder">
+                <header class="card-header">
+                  <p class="card-kicker">Fault finding · Terraced house</p>
+                  <h3 class="card-title">
+                    A tripping RCD in a Colchester terrace – where the fault
+                    actually was
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  Upcoming note: a real fault-finding job in a typical
+                  Colchester terrace and why “just change the breaker” is almost
+                  never the right answer.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">Coming soon</span>
+                </footer>
+              </article>
+
+              <!-- Placeholder future article 2 -->
+              <article class="card card-article card-article--placeholder">
+                <header class="card-header">
+                  <p class="card-kicker">Consumer units · Upgrades</p>
+                  <h3 class="card-title">
+                    Your consumer unit looks fine – here’s why it still failed
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  Upcoming note: cosmetic “after” photos don’t show test
+                  results, protective devices or design decisions. A quick look
+                  behind the front cover.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">Coming soon</span>
+                </footer>
+              </article>
+
+              <!-- Just keep adding <article class="card card-article"> ... </article>
+                   here as you write new posts – the rail will just extend. -->
+            </div>
+
+            <button
+              class="articles-scroll-btn articles-scroll-btn--next"
+              type="button"
+              aria-label="Scroll right"
+            >
+              ›
+            </button>
           </div>
         </section>
 

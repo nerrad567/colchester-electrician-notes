@@ -569,6 +569,91 @@ a {
   }
 }
 
+/* --- Article rail / horizontal scroller --- */
+
+.articles-scroller {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.articles-grid {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.5rem 1.5rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* hide scrollbars but keep scrollability */
+.articles-grid::-webkit-scrollbar {
+  display: none;
+}
+.articles-grid {
+  scrollbar-width: none;
+}
+
+/* cards in the rail: ~3 across on desktop, 1–2 on mobile */
+.card-article {
+  flex: 0 0 min(320px, 80vw);
+  max-width: 320px;
+}
+
+/* scroll buttons */
+.articles-scroll-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 999px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  background: var(--bg-elevated);
+  color: var(--text);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(2px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* only show buttons when there is something to scroll */
+.articles-scroller.articles-scroller--scrollable .articles-scroll-btn {
+  opacity: 0.9;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.articles-scroll-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* tidy on small screens: rely on swipe, hide buttons */
+@media (max-width: 640px) {
+  .articles-scroll-btn {
+    display: none;
+  }
+
+  .articles-scroller {
+    gap: 0;
+  }
+}
+
+/* optional: hover niceness on larger screens */
+@media (hover: hover) and (pointer: fine) {
+  .articles-scroll-btn:hover:not(:disabled) {
+    opacity: 1;
+  }
+}
+
 /* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {

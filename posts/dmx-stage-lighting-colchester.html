@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      DMX stage lighting faults in a Colchester public building | Colchester
+      Electrician Notes
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Fault-finding a misbehaving DMX stage lighting system in a Colchester public building – from damaged cabling to non-compliant AV wiring under BS 7671."
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="canonical"
+      href="https://www.colchester-electrician.com/posts/dmx-stage-lighting-colchester.html"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark"></span>
+          Colchester&nbsp;Electrician&nbsp;Notes
+        </a>
+
+        <nav class="nav">
+          <a href="../index.html" class="nav-link">Articles</a>
+          <a href="../about.html" class="nav-link">About this site</a>
+          <a
+            href="https://www.graylogic.uk"
+            class="nav-link nav-link--accent"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Gray&nbsp;Logic&nbsp;Electrical →
+          </a>
+        </nav>
+      </header>
+
+      <main class="shell shell--article" aria-label="Article">
+        <article class="article">
+          <header class="article-header">
+            <p class="article-kicker">DMX lighting · Public building</p>
+            <h1 class="article-title">
+              DMX stage lighting faults in a Colchester public building
+            </h1>
+            <p class="article-meta">
+              Written by Darren Gray · Gray Logic Electrical · Colchester
+            </p>
+          </header>
+
+          <section class="article-body">
+            <p>
+              This one started as:
+              <em>“The stage lights are playing up again.”</em>
+            </p>
+            <p>
+              A public building in the Colchester area had a DMX stage lighting
+              system feeding a mix of moving-head “robot” lights and uplighters.
+              Some fittings wouldn’t come on, others worked intermittently, and
+              the mixer desk kept “forgetting” the sliders.
+            </p>
+            <p>
+              On jobs like this, you’re really fault-finding two systems at the
+              same time:
+            </p>
+            <ul>
+              <li>
+                The extra-low-voltage (ELV) control side – DMX over XLR/XMR
+                cabling.
+              </li>
+              <li>The mains electrical installation feeding it all.</li>
+            </ul>
+
+            <h2>What was going wrong on the DMX side</h2>
+            <p>
+              Once I’d traced the line and done some basic checks, a few issues
+              showed up quickly:
+            </p>
+            <ul>
+              <li>
+                <strong>Damaged cabling between outlets</strong> – several of
+                the XLR runs between wall outlets had physical damage: crushed
+                sections and poor terminations. That’s enough to cause
+                intermittent data faults and random behaviour on a DMX line.
+              </li>
+              <li>
+                <strong>Damaged patch leads to the lights</strong> – the leads
+                from outlets to multiple “robot” uplighters were also in poor
+                condition. Move the cable and the light would drop off the
+                universe or flicker.
+              </li>
+              <li>
+                <strong>Fixtures that had lost their addresses</strong> – a
+                number of the uplighters had lost their DMX addresses, so they
+                were no longer listening where the desk expected them to. On a
+                mixed system, that quickly turns into “nothing is doing what the
+                sliders say”.
+              </li>
+              <li>
+                <strong>A faulty plug into the mixer desk</strong> – the XLR
+                plug on the entry into the desk was cracked and poorly
+                terminated, giving another intermittent fault right where the
+                signal starts.
+              </li>
+              <li>
+                <strong>Mixer desk losing its memory</strong> – the desk itself
+                wasn’t holding on to its programming. Inside, the backup battery
+                had leaked onto the PCB. That battery wasn’t realistically
+                serviceable in situ and, once electrolyte has leaked on the
+                board, reliability is gone even if you can physically change it.
+              </li>
+            </ul>
+
+            <h2>What I did on the day</h2>
+            <p>On the control side I:</p>
+            <ul>
+              <li>
+                Repaired and/or replaced damaged ELV (DMX) cabling where it was
+                practical to do so.
+              </li>
+              <li>
+                Re-addressed the affected fixtures so they lined up again with
+                the console’s channel layout.
+              </li>
+              <li>
+                Confirmed the mixer desk had a hardware fault due to a leaking
+                backup battery and recommended replacement rather than
+                attempting to rescue it.
+              </li>
+              <li>
+                Showed the client how to re-create a basic show layout (key
+                addresses and channels) if the desk loses power or forgets its
+                memory again, and left a simple printed step-by-step guide with
+                the console so staff can recover a workable setup for events
+                until the desk is replaced.
+              </li>
+            </ul>
+            <p>
+              The end result on the day was a working (but clearly tired)
+              system, with a clear recommendation that the controller itself
+              needs replacing.
+            </p>
+
+            <h2>The more serious part: electrical safety issues</h2>
+            <p>
+              Alongside the DMX faults, there were a number of mains electrical
+              issues that shouldn’t have been there – and certainly not in a
+              public building.
+            </p>
+            <p>
+              These sections had been installed by AV contractors rather than
+              electrical installers. Issues included:
+            </p>
+            <ul>
+              <li>
+                <strong
+                  >230 V and ELV control sharing the same back box and
+                  plate</strong
+                >
+                – mains lighting supply (Band II) and extra-low-voltage control
+                cabling (Band I, e.g. DMX) were running into the same back box
+                and faceplate with no internal barriers or compartments. There
+                was only basic insulation and roughly 20–40 mm of air between
+                terminations.
+              </li>
+              <li>
+                <strong
+                  >Home-made XLR inlets/outlets next to 230 V power</strong
+                >
+                – DIY XLR inlets and outlets on plates that also carried 230 V
+                twist-style power connectors. On the rear, some of the
+                terminations were just spade connectors that were barely
+                attached.
+              </li>
+              <li>
+                <strong>Poor access – outlets hidden behind pillars</strong> –
+                many of these plates were tucked behind pillars or in other
+                hard-to-reach spots. That makes inspection and maintenance
+                difficult and encourages more bodging over time.
+              </li>
+            </ul>
+            <p>
+              None of this is the sort of thing you want hidden in the fabric of
+              a building that’s open to the public.
+            </p>
+            <p>On the day I:</p>
+            <ul>
+              <li>
+                Repaired the ELV control wiring sufficiently to restore reliable
+                operation.
+              </li>
+              <li>
+                Documented and explained the electrical safety concerns to the
+                client in plain language – where they were, why they’re a
+                problem, and what the risks are.
+              </li>
+              <li>
+                Recommended a full replacement of the mixer desk rather than
+                attempting to repair a unit with a leaking battery and damaged
+                PCB.
+              </li>
+            </ul>
+
+            <h2>Our recommendation to the client</h2>
+            <p>
+              After restoring an acceptable level of operation, I provided a
+              quotation to:
+            </p>
+            <ul>
+              <li>
+                Replace the existing mix of plates with proper, compliant
+                outlets that keep mains and control wiring correctly separated.
+              </li>
+              <li>
+                Install more rugged cabling and connectors designed for repeated
+                plugging/unplugging and movement.
+              </li>
+              <li>
+                Upgrade to more robust, higher-output fixtures where
+                appropriate, so the system is not only safer but also more
+                capable and easier for staff to operate.
+              </li>
+            </ul>
+
+            <h2>Technical note (for electricians and tech managers)</h2>
+            <h3>Band I vs Band II segregation – BS 7671 Reg 528.1</h3>
+            <p>
+              In BS 7671:2018+A2:2022, DMX control lines are typically treated
+              as Band I extra-low-voltage signalling/control, while 230 V
+              lighting and power circuits are Band II.
+            </p>
+            <p>
+              Regulation 528.1 covers the segregation of circuits of different
+              bands. In short:
+            </p>
+            <ul>
+              <li>
+                Band I and Band II circuits shouldn’t share a wiring system
+                unless all conductors are insulated for the highest voltage
+                present,
+              </li>
+              <li>
+                or they are separated by an earthed metal screen or partition,
+              </li>
+              <li>
+                or they are installed in separate compartments / otherwise
+                physically segregated.
+              </li>
+            </ul>
+            <p>In this installation:</p>
+            <ul>
+              <li>
+                Band II (230 V) and Band I (ELV DMX) conductors shared the same
+                back box and faceplate.
+              </li>
+              <li>
+                There was no partition or compartmentalisation within the box.
+              </li>
+              <li>
+                The ELV terminations were DIY spades and XLR tails not designed
+                as LV accessories.
+              </li>
+              <li>
+                The only “separation” was 20–40 mm of air and basic insulation –
+                easily defeated by a loose spade connector or someone pushing
+                cables back into the box.
+              </li>
+            </ul>
+            <p>
+              On that basis, it’s hard to argue that the requirements of Reg
+              528.1 for segregation between Band I and Band II circuits were
+              being met.
+            </p>
+
+            <h3>SELV/PELV principles – Section 414</h3>
+            <p>
+              Where ELV circuits are provided as SELV/PELV systems, Section 414
+              of BS 7671 applies. In simple terms, SELV/PELV circuits should be:
+            </p>
+            <ul>
+              <li>
+                Protectively separated from LV circuits (double/reinforced
+                insulation, or basic insulation plus an earthed screen/barrier),
+              </li>
+              <li>
+                Arranged such that a single fault on the LV side cannot make the
+                SELV/PELV parts live,
+              </li>
+              <li>
+                Verified (e.g. by insulation resistance) as being sufficiently
+                separated from other circuits and, for SELV, from earth.
+              </li>
+            </ul>
+            <p>
+              In a shared back box with no partition, basic insulation only and
+              loose terminations, you can’t realistically claim the kind of
+              protective separation that Section 414 is aiming at. A single
+              loose 230 V conductor could energise the ELV terminals or the
+              shell of an XLR connector.
+            </p>
+            <p>
+              Even if the DMX gear is technically FELV rather than SELV/PELV,
+              the principle is the same: either you treat it as LV (and design
+              everything accordingly), or you keep it properly segregated from
+              LV.
+            </p>
+
+            <h3>How I’d describe it on inspection</h3>
+            <p>
+              In inspection/reporting terms in a public building, I’d typically
+              reference:
+            </p>
+            <ul>
+              <li>
+                Reg 528.1 – segregation of Band I/Band II circuits sharing the
+                same enclosure.
+              </li>
+              <li>
+                Section 414 – separation principles for SELV/PELV-type circuits
+                from LV.
+              </li>
+            </ul>
+            <p>Example wording:</p>
+            <p>
+              <em
+                >“LV lighting circuits and ELV control (DMX/XLR) share back
+                boxes and faceplates with no internal partition. DIY
+                terminations and basic insulation only, approx. 20–40 mm
+                separation between Band II and Band I conductors. Does not meet
+                BS 7671 requirements for segregation of Band I/Band II circuits
+                (Reg 528.1) or the separation principles for SELV/PELV-type
+                circuits from LV (Section 414). Risk that LV could appear on ELV
+                connectors under a single fault. Recommend replacement with
+                compliant accessories and separated wiring systems.”</em
+              >
+            </p>
+            <p>
+              Coding wise, I’d be comfortable with a C2 (“potentially dangerous”
+              – urgent remedial work required).
+            </p>
+
+            <h2>Need help with stage or feature lighting in Colchester?</h2>
+            <p>
+              If you’re running a venue with stage or feature lighting in or
+              around Colchester and you’ve got unreliable or “possessed” DMX
+              behaviour – or concerns about how AV and electrical work have been
+              mixed over the years – I can:
+            </p>
+            <ul>
+              <li>Fault-find the existing setup.</li>
+              <li>Make sensible repairs where possible.</li>
+              <li>
+                Design and quote for a safer, more robust replacement that
+                respects both the show and the Wiring Regulations.
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong>Main site &amp; bookings:</strong>
+                <a
+                  href="https://www.graylogic.uk"
+                  target="_blank"
+                  rel="noreferrer"
+                  >graylogic.uk</a
+                >
+              </li>
+              <li>
+                <strong>Local landing:</strong>
+                <a
+                  href="https://colchester.electrician.onl"
+                  target="_blank"
+                  rel="noreferrer"
+                  >colchester.electrician.onl</a
+                >
+              </li>
+            </ul>
+          </section>
+        </article>
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          © <span id="year"></span> Colchester Electrician Notes — written by
+          Darren Gray, Gray Logic Electrical.
+        </p>
+      </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
