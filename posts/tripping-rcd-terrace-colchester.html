@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      A tripping RCD in a Colchester terrace – where the fault actually was |
+      Colchester Electrician Notes
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A real fault-finding job on a tripping RCD in a typical Colchester terrace – why the RCD itself wasn’t the problem, and where the fault actually was."
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="canonical"
+      href="https://www.colchester-electrician.com/posts/tripping-rcd-terrace-colchester.html"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark"></span>
+          Colchester&nbsp;Electrician&nbsp;Notes
+        </a>
+
+        <nav class="nav">
+          <a href="../index.html" class="nav-link">Articles</a>
+          <a href="../about.html" class="nav-link">About this site</a>
+          <a
+            href="https://www.graylogic.uk"
+            class="nav-link nav-link--accent"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Gray&nbsp;Logic&nbsp;Electrical →
+          </a>
+        </nav>
+      </header>
+
+      <main class="shell shell--article" aria-label="Article">
+        <article class="article">
+          <header class="article-header">
+            <p class="article-kicker">Fault finding · Terraced house</p>
+            <h1 class="article-title">
+              A tripping RCD in a Colchester terrace – where the fault actually
+              was
+            </h1>
+            <p class="article-meta">
+              Written by Darren Gray · Gray Logic Electrical · Colchester
+            </p>
+          </header>
+
+          <section class="article-body">
+            <p>
+              This one came in as a fairly common request:
+              <em
+                >“The RCD keeps tripping. Can you just change the breaker?”</em
+              >
+            </p>
+            <p>
+              It’s a typical older Colchester terrace – small consumer unit by
+              the front door, kitchen tacked on at the back, a bit of DIY over
+              the years, and a single 30&nbsp;mA RCD covering most of the
+              sockets.
+            </p>
+            <p>
+              They’d already had a couple of suggestions. One was to “upgrade
+              the RCD” because “it must be too sensitive”. Another was to “stick
+              a different type in” as if that magically fixes everything.
+            </p>
+            <p>The reality (as usual) was a bit different.</p>
+
+            <h2>What the customer was seeing</h2>
+            <p>Their report, in their own words, was roughly:</p>
+            <ul>
+              <li>The main RCD would trip “randomly”.</li>
+              <li>
+                Sometimes it went as soon as they put the kettle on in the
+                kitchen.
+              </li>
+              <li>
+                Sometimes it was when the washing machine went into its heat
+                cycle.
+              </li>
+              <li>
+                Occasionally it would trip in the middle of the night with
+                “nothing on”.
+              </li>
+            </ul>
+            <p>
+              By the time I arrived, half the house was unplugged and they were
+              flicking breakers on and off to “see what helps”.
+            </p>
+
+            <h2>First step: make it safe and stop guessing</h2>
+            <p>
+              Before any fault-finding, I want a safe starting point and a clear
+              picture of what’s actually on that RCD. So:
+            </p>
+            <ul>
+              <li>
+                <strong>Safe isolation</strong> – confirm supply off, lock off,
+                prove dead.
+              </li>
+              <li>
+                <strong>Consumer unit open</strong> – check the general standard
+                of work:
+                <ul>
+                  <li>Mixed brands in the board.</li>
+                  <li>
+                    One 30&nbsp;mA RCD feeding several MCBs, plus a cooker on
+                    its own RCBO.
+                  </li>
+                  <li>Labels mostly wrong or missing (of course).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Work out what’s actually on that RCD</strong>:
+                <ul>
+                  <li>A ring final doing most of the sockets in the house.</li>
+                  <li>Kitchen sockets as a leg off the same ring.</li>
+                  <li>
+                    A spur out to an outside socket and a small shed supply.
+                  </li>
+                  <li>A boiler on a fused spur from the ring.</li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              Nothing outrageous yet – just what you’d expect in a terrace
+              that’s had “a bit added on” in the kitchen and garden over time.
+            </p>
+
+            <h2>Insulation resistance: is the wiring broadly healthy?</h2>
+            <p>
+              With everything safely disconnected where needed, I ran insulation
+              resistance tests (L–N to CPC, N–CPC etc.) on the main circuits the
+              RCD was protecting.
+            </p>
+            <p>The results were “okay but not perfect”:</p>
+            <ul>
+              <li>
+                The main ring had good readings L–N and L–E (nicely into
+                megohms).
+              </li>
+              <li>
+                N–E was a little lower than I’d like but still within a broadly
+                acceptable range for an older installation.
+              </li>
+              <li>
+                The kitchen extensions were similar – nothing screamingly bad.
+              </li>
+            </ul>
+            <p>
+              That told me we weren’t dealing with a dead short in the fixed
+              wiring. There was probably some background neutral–earth leakage,
+              but nothing on the test alone that said “this is definitely it”.
+            </p>
+            <p>
+              So I’m not ripping the RCD out yet, and I’m not simply blaming
+              “old wiring” either.
+            </p>
+
+            <h2>Recreating the fault: what actually makes it trip?</h2>
+            <p>
+              Next step is always to recreate the fault in a controlled way,
+              rather than keep resetting and hoping for the best.
+            </p>
+            <p>
+              With the cover back on and everything made safe, I powered up and
+              started loading the installation in a controlled way:
+            </p>
+            <ul>
+              <li>Boiler on.</li>
+              <li>Fridge-freezer on.</li>
+              <li>A couple of general sockets in use.</li>
+            </ul>
+            <p>
+              Like that, the RCD sat quite happily. The first real clue came
+              when the washing machine went into its heat cycle – as soon as the
+              element kicked in, the RCD tripped.
+            </p>
+            <p>
+              Unplug the washing machine, reset the RCD, run everything else: no
+              trip.
+            </p>
+            <p>
+              At this point it’d be very easy (and very common) to just say:
+              <em>“It’s your washing machine, you need a new one.”</em> But I
+              wanted to be sure there wasn’t something else dragging everything
+              towards that 30&nbsp;mA threshold.
+            </p>
+
+            <h2>The classic terrace combo: outside sockets and damp</h2>
+            <p>
+              I asked the obvious questions about the outside socket and shed:
+            </p>
+            <ul>
+              <li>
+                “Does it ever trip when you’re using the lawnmower or pressure
+                washer?”
+              </li>
+              <li>“Any issues with the shed power?”</li>
+            </ul>
+            <p>They mentioned a couple of things:</p>
+            <ul>
+              <li>
+                After heavy rain, the RCD had tripped overnight a few times.
+              </li>
+              <li>
+                There was a budget extension reel permanently plugged into the
+                outside socket, running into the shed to feed a small heater and
+                a couple of chargers.
+              </li>
+            </ul>
+            <p>There’s your second suspect.</p>
+
+            <p>
+              I isolated and tested the spur to the outside socket and shed. IR
+              on that leg wasn’t awful, but it was noticeably lower than the
+              rest of the ring. With loads connected, there was a bit of earth
+              leakage even with switches off.
+            </p>
+            <p>When I opened the outside socket, the picture became clearer:</p>
+            <ul>
+              <li>
+                Gasket missing / hanging out, so water wasn’t being kept out
+                properly.
+              </li>
+              <li>
+                Evidence of moisture inside and slightly greened terminals.
+              </li>
+              <li>
+                The flex going to the shed had been trapped in the cover –
+                pinched insulation.
+              </li>
+            </ul>
+            <p>
+              Put that together and it starts to make sense: the washing machine
+              is contributing some earth leakage on heat, and the outside
+              socket/shed leg is adding its own leakage when damp. Add the usual
+              background leakage from filters, chargers and electronics, and the
+              installation is living on the edge of that 30&nbsp;mA RCD limit.
+            </p>
+
+            <h2>Why “just change the breaker” is the wrong answer</h2>
+            <p>
+              A lot of people jump straight to swapping the protective device:
+            </p>
+            <ul>
+              <li>“RCDs go faulty – just change it.”</li>
+              <li>
+                “Let’s fit a less sensitive one, that’ll stop it tripping.”
+              </li>
+              <li>“Stick something else in, must be the breaker, right?”</li>
+            </ul>
+            <p>
+              The problem is, in this case the RCD was doing exactly what it’s
+              supposed to do – it was seeing enough leakage to trip.
+            </p>
+            <p>
+              Swapping it for a brand new one without dealing with the
+              underlying leakage doesn’t magically fix anything. Fitting
+              something “less sensitive” might stop the nuisance trips, but it
+              does it by looking the other way, not by making the installation
+              safer.
+            </p>
+
+            <aside class="article-note article-note--technical">
+              <p class="article-note-label">
+                Technical note · For electricians and tech managers
+              </p>
+
+              <h3>RCDs, leakage and BS 7671</h3>
+              <p>
+                In a typical 30&nbsp;mA RCD-protected system, you’ll always have
+                some background earth leakage from filters, appliances and long
+                cable runs. BS&nbsp;7671 expects RCDs to operate within defined
+                trip times at certain residual currents – the device is there to
+                disconnect when leakage reaches a level that could be harmful.
+              </p>
+              <p>
+                The temptation is to blame the RCD and swap it, but unless
+                testing shows the device itself is faulty (failing RCD tests or
+                tripping with no connected load), the more honest approach is to
+                find and fix the sources of leakage first.
+              </p>
+
+              <h3>Division of installation and shared RCDs</h3>
+              <p>
+                A common theme in older properties is multiple circuits piled
+                onto a single RCD – rings, kitchen, outside sockets and sheds
+                all sharing one 30&nbsp;mA device. The Wiring Regulations
+                emphasise sensible division of the installation so a single
+                fault doesn’t take out “everything critical” in one go.
+              </p>
+              <p>In practice that means:</p>
+              <ul>
+                <li>
+                  Not relying on one RCD to look after half the house,
+                  especially where outside circuits and damp areas are involved.
+                </li>
+                <li>
+                  Considering RCBOs or at least splitting loads so outside and
+                  high-leakage circuits don’t drag the rest over the edge.
+                </li>
+              </ul>
+
+              <h3>How I’d frame it in a report</h3>
+              <p>
+                On an EICR or fault report, I’m usually clear about the
+                difference between:
+              </p>
+              <ul>
+                <li>
+                  <em
+                    >“RCD nuisance tripping due to cumulative leakage from
+                    multiple circuits and external loads”</em
+                  >, and
+                </li>
+                <li>
+                  <em>“RCD/RCBO itself defective or failing testing”</em>.
+                </li>
+              </ul>
+              <p>
+                The first needs circuit-level fixes and, ideally, better circuit
+                division. The second needs a new device. Mixing them up either
+                wastes money or hides a fault instead of addressing it.
+              </p>
+            </aside>
+
+            <h2>What we actually did</h2>
+            <p>
+              On this job, the fix wasn’t glamorous, but it was honest and
+              repeatable.
+            </p>
+            <ul>
+              <li>
+                <strong>Outside socket &amp; spur</strong> – replaced the
+                outside socket with a proper, weatherproof unit, re-terminated
+                everything cleanly with the cable properly glanded, and made
+                sure the enclosure actually sealed. Repeat tests showed a clear
+                improvement in insulation resistance and leakage.
+              </li>
+              <li>
+                <strong>Shed supply</strong> – removed the permanent budget
+                extension reel arrangement and put in a more sensible fixed
+                connection so they weren’t running flex through door gaps in all
+                weather.
+              </li>
+              <li>
+                <strong>Washing machine</strong> – re-tested with the rest of
+                the circuit in a better state. The machine was still
+                contributing some leakage on heat, but no longer enough on its
+                own to tip the RCD. I gave them straight advice: it’s safe to
+                use for now, but when it eventually gets replaced, the overall
+                leakage picture will only improve.
+              </li>
+              <li>
+                <strong>Consumer unit labelling &amp; notes</strong> – updated
+                the circuit schedule so the next person has half a chance, and
+                talked through options for future upgrades (more RCBOs, better
+                separation of circuits) when the board is eventually changed.
+              </li>
+            </ul>
+            <p>
+              After that, we ran it under real conditions – washer heating,
+              kettle on, boiler cycling, shed loads on – and the RCD stayed put.
+            </p>
+
+            <h2>The takeaway: terraces remember every little bodge</h2>
+            <p>
+              In older Colchester terraces especially, you tend to see the same
+              pattern repeat:
+            </p>
+            <ul>
+              <li>Original wiring that’s “mostly OK”.</li>
+              <li>
+                Small additions over the years – conservatories, outside
+                sockets, sheds, kitchen tweaks.
+              </li>
+              <li>
+                All of it landed on one RCD, with no-one ever looking at the
+                overall leakage.
+              </li>
+            </ul>
+            <p>
+              So when someone says <em>“The RCD is too sensitive”</em>, what
+              they often mean is:
+            </p>
+            <p>
+              <em
+                >“We’ve gradually added so many little leaks and bodges that the
+                protective device is finally doing what it was designed to
+                do.”</em
+              >
+            </p>
+
+            <h2>When you actually might replace the RCD</h2>
+            <p>
+              There are times an RCD or RCBO genuinely is the problem – but you
+              prove that with testing, not guesswork:
+            </p>
+            <ul>
+              <li>
+                It trips with no load connected and healthy insulation readings.
+              </li>
+              <li>
+                It fails RCD tests (won’t trip at all, or trips wildly outside
+                expected times).
+              </li>
+              <li>It’s visibly damaged, overheated or otherwise suspect.</li>
+            </ul>
+            <p>In those cases, yes – replace it. But the default should be:</p>
+            <ol>
+              <li>Test the circuits.</li>
+              <li>Find the fault or cumulative leakage.</li>
+              <li>Fix the cause.</li>
+              <li>Then decide if the device itself needs changing.</li>
+            </ol>
+
+            <h2>Need help with a tripping RCD in Colchester?</h2>
+            <p>
+              If you’ve got a Colchester terrace (or anything else) where the
+              RCD trips “for no reason”, you’ve been told to just “change the
+              breaker”, or you’re nervous about using outside sockets and sheds,
+              I can:
+            </p>
+            <ul>
+              <li>Work through the installation methodically.</li>
+              <li>
+                Explain where the problem actually is and what your options are.
+              </li>
+              <li>
+                Prioritise fixes so you’re safe now but also have a sensible
+                plan for future upgrades.
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong>Main site &amp; bookings:</strong>
+                <a
+                  href="https://www.graylogic.uk"
+                  target="_blank"
+                  rel="noreferrer"
+                  >graylogic.uk</a
+                >
+              </li>
+              <li>
+                <strong>Local landing:</strong>
+                <a
+                  href="https://colchester.electrician.onl"
+                  target="_blank"
+                  rel="noreferrer"
+                  >colchester.electrician.onl</a
+                >
+              </li>
+            </ul>
+          </section>
+        </article>
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          © <span id="year"></span> Colchester Electrician Notes — written by
+          Darren Gray, Gray Logic Electrical.
+        </p>
+      </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
