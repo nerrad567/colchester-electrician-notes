@@ -9,14 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Why domestic GRP meter boxes aren’t suitable wiring enclosures for customer circuits, why adding a separate enclosure is fine, and a common EV/SWA termination trap."
+      content="Why domestic meter boxes aren’t accepted as customer wiring spaces (industry guidance), where BS 7671 becomes relevant (basic protection, IP, terminations, earthing), and common EV/SWA termination traps. Best practice: fit a separate enclosure."
     />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link
       rel="canonical"
-      href="https://www.colchester-electrician.com/posts/meter-box-customer-wiring-bs7671.html"
+      href="https://www.colchester-electrician.com/posts/meter-box-customer-wiring.html"
     />
   </head>
+
   <body>
     <div class="page">
       <header class="site-header">
@@ -53,221 +54,372 @@
 
           <section class="article-body">
             <aside class="article-note article-note--technical">
-              <p class="article-note-label">Quick answers · Common myths</p>
+              <p class="article-note-label">
+                Technical note · References &amp; BS 7671 pointers
+              </p>
 
-              <h3>Common misunderstandings (the short version)</h3>
+              <h3>Industry / metering guidance (the “accepted use” point)</h3>
               <ul>
                 <li>
-                  <strong>“It’s locked, so it’s safe.”</strong> A lock controls
-                  access. It doesn’t prove the enclosure is suitable to provide
-                  basic protection for customer wiring.
-                </li>
-                <li>
-                  <strong>“The homeowner owns the meter box.”</strong> Ownership
-                  doesn’t change what the enclosure was designed to do.
-                  <em
-                    >Owning a gas meter box doesn’t make it a boiler
-                    cupboard.</em
+                  <strong>ENA statement (via IET Wiring Matters):</strong>
+                  <blockquote>
+                    “a space designed for the use of electricity industry
+                    apparatus only … no allowance is made for additional
+                    equipment.”
+                  </blockquote>
+                  <a
+                    href="https://electrical.theiet.org/wiring-matters/years/2024/102-september-2024/external-consumer-units-for-electric-vehicles-in-a-domestic-environment/"
+                    target="_blank"
+                    rel="noreferrer"
+                    >IET Wiring Matters (Sep 2024)</a
                   >
                 </li>
                 <li>
-                  <strong
-                    >“Supplier isolators are in there, so anything goes.”</strong
+                  <strong>UK Government guidance:</strong>
+                  <blockquote>
+                    “External meter boxes/cupboards should only contain
+                    equipment required to enable an electricity … supply to be
+                    provided … safely.”
+                  </blockquote>
+                  <a
+                    href="https://assets.publishing.service.gov.uk/media/60d23986e90e0743a7a70b90/smart-metering-guidance-new-builds.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Smart Metering Guidance for New Builds (PDF)</a
                   >
-                  Supplier gear is installed under supplier authority as part of
-                  the metering arrangement. That doesn’t give a free pass for
-                  customer equipment.
                 </li>
                 <li>
-                  <strong>“It looks tidy.”</strong> Tidy isn’t the same as
-                  suitable. Use a purpose-made enclosure for customer kit.
+                  <strong>Network operator guidance (GTC):</strong>
+                  <blockquote>
+                    “No other equipment should be installed in this external
+                    meter box.”
+                  </blockquote>
+                  <a
+                    href="https://www.gtc-uk.co.uk/wp-content/uploads/2023/10/GTC-Technical-Guidelines-ELECTRICITY-GE-TGI-IG-0015-Vn10.00.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GTC Technical Guidelines (PDF)</a
+                  >
                 </li>
               </ul>
 
-              <h3>The practical rule I work to</h3>
+              <h3>BS 7671 regs referenced in this article</h3>
               <p>
-                If you need to add customer equipment near the intake (EV
-                isolator, small board, junctioning, etc.), fit a
-                <strong>separate enclosure</strong> next to the meter position
-                that’s designed to house live parts and is rated for the
-                environment. Don’t repurpose the meter cabinet.
+                Reg numbers below are for cross-checking in the current
+                edition (BS 7671:2018+A2:2022):
               </p>
+              <ul>
+                <li>
+                  <strong>Suitability / instructions:</strong> 133.1.1, 134.1.1
+                </li>
+                <li>
+                  <strong>Basic protection by barriers/enclosures:</strong>
+                  416.2, 416.2.1, 416.2.4
+                </li>
+                <li>
+                  <strong>Mechanical protection / strain:</strong> 522.8.1,
+                  522.8.5
+                </li>
+                <li><strong>Connections:</strong> 526.1</li>
+                <li>
+                  <strong>Earthing / PE principles (where applicable):</strong>
+                  Chapter 54; 411.3.1.1
+                </li>
+              </ul>
             </aside>
 
             <p>
-              I’m seeing more domestic meter boxes used as a “handy spare
-              cupboard” for customer wiring: EV charger feeds, isolators, small
-              distribution boxes, and junctions added wherever there’s space.
-            </p>
-            <p>
-              It often looks neat. It’s outside and out of the way. And because
-              many meter boxes are owned by the homeowner, it’s easy to assume:
-            </p>
-            <p>
-              <em>“If it fits inside the meter box, it must be OK.”</em>
-            </p>
-            <p>
-              In practice, it’s a source of problems — sometimes immediately,
-              but more often later when equipment is upgraded, faults develop,
-              or a meter operator needs access.
+              It’s increasingly common to see customer wiring installed inside
+              domestic meter boxes — EV charger supplies, isolators, Henleys,
+              small distribution enclosures, and various “it’ll do” junctioning.
+              The reasoning is usually practical: the space exists, it’s
+              external, and in many cases the homeowner owns the cabinet.
             </p>
 
-            <h2>What a domestic meter box is actually for</h2>
             <p>
-              A GRP meter cabinet is intended to house the intake and metering
-              arrangement: service head / cut-out, meter, and sometimes a
-              supplier-installed isolator.
-            </p>
-            <p>
-              It’s designed for weather protection, basic security, and routine
-              access for meter readers and service engineers. It is not
-              generally designed, declared, or assessed as a wiring enclosure
-              for customer circuits.
-            </p>
-            <p>
-              That last sentence matters. A box can be “an enclosure” in the
-              everyday sense, but that doesn’t automatically make it the sort
-              of enclosure BS 7671 expects you to rely on for protecting people
-              from contact with live parts.
+              However, this practice causes repeated problems — not because of
+              personal preference or “what inspectors like”, but because
+              <strong>meter cabinets are not accepted or managed as spaces for
+                customer wiring</strong>, and because real electrical shortcomings
+              often appear once they’re used that way.
             </p>
 
-            <h2>Locks and keys don’t automatically make it suitable</h2>
+            <h2>
+              1) Meter cabinets aren’t accepted as customer wiring spaces
+              <span class="sr-only">(and this is not a BS 7671 rule)</span>
+            </h2>
+
             <p>
-              A common argument is that the meter box is locked or needs a key
-              to open.
-            </p>
-            <p>
-              Access control helps, but it doesn’t answer the real question:
-              is this enclosure intended to act as the protective barrier for
-              live customer wiring?
-            </p>
-            <p>
-              Meter boxes are routinely opened by people who are there to deal
-              with metering equipment — not to encounter customer-installed
-              wiring arrangements, junctions, or boards.
+              It’s important to be clear from the outset:
             </p>
 
-            <h2>“But the supplier put an isolator in there…”</h2>
             <p>
-              Supplier isolators are often fitted inside meter cabinets and can
-              look similar to customer equipment. The difference isn’t how it
-              looks — it’s responsibility and purpose.
-            </p>
-            <p>
-              Supplier equipment is installed under supplier authority as part
-              of the metering arrangement. Customer equipment isn’t. The
-              presence of supplier gear doesn’t create a general permission to
-              treat the meter cabinet as a customer wiring space.
-            </p>
-
-            <h2>Why adding a separate enclosure is fine (and usually best)</h2>
-            <p>
-              None of this means you can’t add equipment near the intake.
-            </p>
-            <p>
-              The clean solution is to add a separate, purpose-made enclosure
-              next to or below the meter cabinet — for example a small EV
-              distribution enclosure or an isolator enclosure rated for outdoor
-              use.
-            </p>
-            <p>
-              These enclosures are designed to house live parts, provide a
-              defined protective barrier, and be installed and maintained as
-              part of the customer’s electrical installation.
-            </p>
-            <p>
-              Put simply:
               <strong
-                >you can add a proper enclosure — you shouldn’t repurpose the
-                meter cabinet.</strong
+                >There is no regulation in BS 7671 that explicitly forbids
+                customer wiring inside a meter cabinet.</strong
               >
             </p>
 
-            <h2>A very common EV charger trap: SWA termination inside the meter box</h2>
             <p>
-              One setup I’m seeing a lot is an EV charger supply routed through
-              the meter cabinet. The cable is often SWA (steel wire armoured),
-              and the termination into a small enclosure is sometimes done with
-              a stuffing gland rather than a proper armour-clamping gland.
-            </p>
-            <p>
-              Most EV chargers are plastic. That means the armour is often not
-              properly dealt with at the charger end (or it’s assumed “it’ll be
-              fine”).
-            </p>
-            <p>
-              If the armour isn’t correctly terminated and earthed at at least
-              one end, you can end up with a floating conductive layer. That’s
-              not the sort of thing you want hidden in a cabinet that gets
-              opened for metering work.
+              However, that does <em>not</em> mean meter cabinets are accepted or
+              suitable spaces for customer wiring — and the reason has nothing
+              to do with opinion.
             </p>
 
-            <h2>Why this matters in practice</h2>
+            <h3>Where the restriction actually comes from</h3>
             <p>
-              This isn’t about paperwork. It’s about future work and future
-              safety.
+              Domestic meter cabinets sit in a boundary space between the
+              customer installation and the electricity supply network. They’re
+              governed in practice by:
+            </p>
+            <ul>
+              <li>DNO / supplier safety duties, and</li>
+              <li>meter operator access requirements,</li>
+            </ul>
+            <p>
+              not by BS 7671 design rules.
+            </p>
+
+            <p>
+              Industry and government guidance is explicit (see the references in
+              the technical note above). The practical takeaway is simple:
+              metering equipment needs clear, safe access, and the meter cabinet
+              is treated as “metering space”, not a general-purpose customer
+              wiring enclosure.
+            </p>
+
+            <h3>Why “the customer doesn’t care what the DNO says” isn’t a defence</h3>
+            <p>
+              From a customer’s perspective, this usually only becomes relevant
+              later — when a smart meter is fitted, when an upgrade is requested,
+              when the cut-out/service head needs work, or when a safety issue
+              arises. At that point, if the metering space is considered unsafe
+              or unsuitable, work simply won’t proceed until it’s resolved.
+            </p>
+
+            <h2>2) Why ownership doesn’t make an enclosure “suitable”</h2>
+            <p>
+              A common argument is that the homeowner owns the meter cabinet,
+              therefore it can be used as they wish. Ownership doesn’t change
+              suitability.
+            </p>
+
+            <p>
+              A better way to think about it is this:
+              <strong
+                >owning a weatherproof storage box doesn’t make it an electrical
+                enclosure.</strong
+              >
+              If it hasn’t been designed and declared to provide the required
+              protection for live parts, you can’t treat it as though it has.
+            </p>
+
+            <p>
+              That aligns with general BS 7671 principles around equipment being
+              suitable for the application and installed in accordance with
+              intended use and instructions (e.g. Regs 133.1.1 and 134.1.1).
+            </p>
+
+            <h2>3) Supplier isolators don’t create permission</h2>
+            <p>
+              Supplier isolators are often fitted inside meter cabinets and are
+              frequently used as justification for adding customer equipment.
+              They don’t create permission.
+            </p>
+            <p>
+              Supplier equipment sits under supplier authority as part of the
+              metering arrangement. Customer-installed equipment does not share
+              that status, even if it looks similar.
+            </p>
+
+            <h2>4) Where BS 7671 becomes relevant (accurately)</h2>
+            <p>
+              BS 7671 doesn’t care that a cable passes through a meter cabinet.
+              It becomes relevant when compliance relies on conditions in that
+              space. Typical triggers include:
             </p>
             <ul>
               <li>
-                Meter operators and DNO/supplier engineers need clear access to
-                metering equipment.
+                <strong>Basic protection</strong> being provided by
+                barriers/enclosures (Regs 416.2, 416.2.1, 416.2.4)
               </li>
               <li>
-                Extra customer kit inside the meter cabinet often leads to
-                delays, refusal to work, or “clear it first” conversations.
+                Reliance on <strong>degree of protection (IP)</strong> for
+                accessories/terminations (linking back to suitability, Reg
+                133.1.1)
               </li>
               <li>
-                Poor termination practices (especially on EV supplies) can sit
-                unnoticed until something goes wrong.
+                <strong>Mechanical protection</strong> of wiring systems (Reg
+                522.8.1) and avoiding mechanical strain at terminations (Reg
+                522.8.5)
+              </li>
+              <li><strong>Sound connections</strong> (Reg 526.1)</li>
+              <li>
+                <strong>Earthing / PE integrity</strong> where relied upon
+                (Chapter 54; and 411.3.1.1 where applicable)
               </li>
             </ul>
 
-            <h2>The takeaway</h2>
+            <p>
+              The key question BS 7671 asks isn’t “is it a meter box?”. It’s:
+            </p>
+            <p>
+              <strong>What is providing the protection you’re relying on, and is
+                it suitable?</strong>
+            </p>
+
+            <h2>5) Meter tails and “basic insulation” — what the real issue is</h2>
+            <p>
+              Meter tails are typically <strong>double insulated</strong>. The
+              usual problem is not “tails exist in a meter box” — it’s what
+              often happens at terminations:
+            </p>
             <ul>
+              <li>insulation stripped back too far</li>
+              <li>basic insulation visible outside an enclosure</li>
               <li>
-                Meter cabinets are for the metering arrangement — not a general
-                customer wiring enclosure.
-              </li>
-              <li>
-                A lock doesn’t automatically make an enclosure suitable to rely
-                on for customer wiring protection.
-              </li>
-              <li>
-                Supplier equipment doesn’t mean “anything goes”.
-              </li>
-              <li>
-                If you need to add customer equipment at the intake, fit a
-                separate enclosure that’s designed for it.
+                poor entry/retention arrangements leaving conductors unsupported
+                or vulnerable
               </li>
             </ul>
 
-            <h2>Need help untangling an intake / EV setup in Colchester?</h2>
             <p>
-              If you’ve got an EV charger feed, isolator, or other customer
-              wiring stuffed into a meter box and you want a cleaner, safer
-              arrangement, I can inspect what you’ve got and propose a sensible
-              layout that’s maintainable and future-proof.
+              Once stripped insulation or exposed basic insulation exists in a
+              space, the discussion returns to basic protection by barriers or
+              enclosures (Regs 416.2 series), suitability (Reg 133.1.1),
+              workmanship and intended use (Reg 134.1.1), mechanical strain/support
+              (Reg 522.8.5), and soundness of connections (Reg 526.1).
+            </p>
+
+            <h2>6) EV charger supplies: SWA termination and armour earthing</h2>
+            <p>
+              EV work is where meter-box installs most often go wrong.
+            </p>
+
+            <p>
+              A common pattern is: SWA EV feed enters the meter cabinet, the SWA
+              is terminated into a small customer enclosure inside, and the
+              termination is done with a <strong>stuffing gland</strong> rather
+              than a BW/CW type armour gland.
+            </p>
+
+            <h3>a) Mechanical termination and strain relief</h3>
+            <p>
+              Stuffing glands may grip the sheath, but they don’t properly
+              terminate the armour. That can leave terminations mechanically
+              weak and put stress onto inner conductors.
+            </p>
+            <p>
+              Relevant regs/principles: avoiding mechanical strain and providing
+              appropriate support (Reg 522.8.5), sound connections (Reg 526.1),
+              and proper workmanship (Reg 134.1.1).
+            </p>
+
+            <h3>b) Armour earthing (especially with plastic EV chargers)</h3>
+            <p>
+              Many EV chargers are plastic. In practice that often means the
+              armour isn’t properly dealt with at the EV unit end. If it’s also
+              not correctly terminated at the supply end, the armour may be
+              floating.
+            </p>
+            <p>
+              Under a core-to-armour fault, that can affect fault conditions and
+              what clears what. The design must ensure the protective measures
+              are effective, and the installation must verify this by test.
+            </p>
+
+            <h2>7) The correct approach</h2>
+            <p>
+              If customer equipment is required near the intake:
+            </p>
+            <ol>
+              <li>
+                <strong>Install a separate, purpose-designed enclosure</strong>
+                rated for the environment (Reg 133.1.1).
+              </li>
+              <li>
+                <strong>Keep customer wiring and terminations out of the meter
+                  cabinet</strong>
+                unless there’s a clear reason and protective measures are not
+                being compromised.
+              </li>
+              <li>
+                <strong>Terminate SWA correctly</strong> (correct gland, correct
+                earthing method, tested and verified) (Reg 526.1; Reg 522.8.5;
+                Chapter 54).
+              </li>
+              <li>
+                <strong>Leave the meter cabinet for metering equipment only</strong>
+                (aligns with published guidance and avoids access disputes).
+              </li>
+            </ol>
+
+            <h2>Takeaway</h2>
+            <p>
+              This isn’t about claiming BS 7671 “bans” customer wiring in meter
+              cabinets — it doesn’t.
+            </p>
+            <p>
+              It’s about recognising two realities:
             </p>
             <ul>
               <li>
-                <strong>Main site &amp; bookings:</strong>
+                the metering space is intended and enforced as metering-only
+                (industry/government guidance), and
+              </li>
+              <li>
+                BS 7671 becomes relevant when protection, IP performance,
+                termination integrity or earthing relies on the conditions inside
+                that space.
+              </li>
+            </ul>
+            <p>
+              The simplest, cleanest solution remains:
+              <strong>Add a proper enclosure. Don’t repurpose the meter cabinet.</strong>
+            </p>
+
+            <h2>References</h2>
+            <ul>
+              <li>
+                IET Wiring Matters (Sep 2024): External consumer units for EVs in
+                a domestic environment (includes ENA statement) —
                 <a
-                  href="https://www.graylogic.uk"
+                  href="https://electrical.theiet.org/wiring-matters/years/2024/102-september-2024/external-consumer-units-for-electric-vehicles-in-a-domestic-environment/"
                   target="_blank"
                   rel="noreferrer"
-                  >graylogic.uk</a
+                  >Link</a
                 >
               </li>
               <li>
-                <strong>Local landing:</strong>
+                UK Government: Smart Metering Guidance for New Builds (PDF) —
                 <a
-                  href="https://colchester.electrician.onl"
+                  href="https://assets.publishing.service.gov.uk/media/60d23986e90e0743a7a70b90/smart-metering-guidance-new-builds.pdf"
                   target="_blank"
                   rel="noreferrer"
-                  >colchester.electrician.onl</a
+                  >Link</a
+                >
+              </li>
+              <li>
+                GTC: Technical Guidelines – Electricity (PDF) —
+                <a
+                  href="https://www.gtc-uk.co.uk/wp-content/uploads/2023/10/GTC-Technical-Guidelines-ELECTRICITY-GE-TGI-IG-0015-Vn10.00.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Link</a
                 >
               </li>
             </ul>
+
+            <hr />
+
+            <p>
+              If you’re in Colchester and you’ve got an EV feed or customer kit
+              stuffed into a meter cabinet and want it laid out properly, you
+              can book through
+              <a href="https://www.graylogic.uk" target="_blank" rel="noreferrer"
+                >graylogic.uk</a
+              >.
+            </p>
           </section>
         </article>
       </main>
