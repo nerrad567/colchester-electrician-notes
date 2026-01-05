@@ -23,6 +23,41 @@
     });
   });
 
+  // Expandable technical notes (side panel)
+  const noteToggles = document.querySelectorAll(".article-note-toggle");
+  const closeBtn = document.querySelector(".article-note-close");
+  
+  const togglePanel = (expand) => {
+    const note = document.querySelector(".article-note--expandable");
+    const toggle = document.querySelector(".article-note-toggle");
+    const icon = toggle.querySelector(".toggle-icon");
+    
+    if (expand) {
+      // Slide in from right
+      note.style.transform = "translateY(-50%)";
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.style.zIndex = "999";
+    } else {
+      // Slide out to right
+      note.style.transform = "translateY(-50%) translateX(100%)";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.style.zIndex = "1001";
+    }
+  };
+  
+  noteToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      togglePanel(!isExpanded);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      togglePanel(false);
+    });
+  }
+
   // Horizontal article scrollers
   const scrollers = document.querySelectorAll("[data-articles-scroller]");
 

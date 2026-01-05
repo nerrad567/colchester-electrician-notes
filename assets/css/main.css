@@ -704,6 +704,66 @@ a {
   .articles-scroller {
     gap: 0;
   }
+
+  /* Technical note button - responsive */
+  .article-note-toggle {
+    width: 3.8rem !important;
+    min-height: 140px !important;
+    padding: 0.8rem 0.5rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Technical note panel - 40% width on mobile */
+  .article-note--expandable {
+    width: 40vw !important;
+    max-width: none !important;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .article-note-toggle {
+    width: 4rem;
+    min-height: 160px;
+  }
+
+  .article-note--expandable {
+    width: 40vw;
+  }
+}
+
+/* Close button hover state */
+.article-note-close:hover {
+  color: var(--accent) !important;
+}
+
+/* Scrollbar styling for technical note panel */
+.article-note-content {
+  scrollbar-color: var(--accent) var(--border-soft);
+  scrollbar-width: thick;
+}
+
+/* Webkit scrollbar (Chrome, Safari, Edge) */
+.article-note-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.article-note-content::-webkit-scrollbar-track {
+  background: var(--border-soft);
+}
+
+.article-note-content::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 0;
+  border: 2px solid var(--border-soft);
+}
+
+.article-note-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-strong);
+}
+
+.article-note-content::-webkit-scrollbar-thumb:active {
+  background: var(--accent-strong);
 }
 
 /* optional: hover niceness on larger screens */
