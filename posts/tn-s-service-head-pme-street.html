@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      TN-S at the service head… PME in the street? Why both can be “true” (and
+      when it matters) | Colchester Electrician Notes
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Why an intake can present TN-S while guidance still says treat it as PME — hybrid networks, EICR recording vs outdoor touch risk, and exported earth to metalwork."
+    />
+    <meta name="author" content="Darren Gray" />
+    <meta property="og:site_name" content="Colchester Electrician Notes" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="TN-S at the service head… PME in the street?"
+    />
+    <meta
+      property="og:description"
+      content="Why an intake can present TN-S while guidance still says treat it as PME — hybrid networks, EICR recording vs outdoor touch risk, and exported earth to metalwork."
+    />
+    <meta
+      property="og:url"
+      content="https://www.colchester-electrician.com/posts/tn-s-service-head-pme-street.html"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="TN-S at the service head… PME in the street?"
+    />
+    <meta
+      name="twitter:description"
+      content="Why an intake can present TN-S while guidance still says treat it as PME — hybrid networks, EICR recording vs outdoor touch risk, and exported earth to metalwork."
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="canonical"
+      href="https://www.colchester-electrician.com/posts/tn-s-service-head-pme-street.html"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": "https://www.colchester-electrician.com/posts/tn-s-service-head-pme-street.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.colchester-electrician.com/posts/tn-s-service-head-pme-street.html"
+        },
+        "headline": "TN-S at the service head… PME in the street? Why both can be “true” (and when it matters)",
+        "description": "Why an intake can present TN-S while guidance still says treat it as PME — hybrid networks, EICR recording vs outdoor touch risk, and exported earth to metalwork.",
+        "author": { "@type": "Person", "name": "Darren Gray" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Gray Logic Electrical",
+          "url": "https://www.graylogic.uk/"
+        },
+        "about": ["Earthing", "PME", "EV charging", "Colchester"]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a href="../index.html" class="logo">
+            <span class="logo-mark"></span>
+            Colchester&nbsp;Electrician&nbsp;Notes
+          </a>
+
+          <nav class="nav">
+            <a href="../about.html" class="nav-link">About this site</a>
+            <a href="../disclaimer.html" class="nav-link">Disclaimer</a>
+            <a
+              href="https://www.graylogic.uk"
+              class="nav-link nav-link--accent"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Gray&nbsp;Logic&nbsp;Electrical →
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <header class="article-header" aria-label="Article header">
+            <p class="article-kicker">Earthing · EICR · Outbuildings · EV charging</p>
+            <h1 class="article-title">
+              TN-S at the service head… PME in the street? Why both can be “true”
+              (and when it matters)
+            </h1>
+            <p class="article-meta">
+              Written by Darren Gray · Gray Logic Electrical · Colchester
+            </p>
+          </header>
+
+      <main class="shell shell--article" aria-label="Article">
+          <article class="article">
+            <section class="article-body">
+            <p>
+              You check the service head and it <em>looks</em> like <strong>TN-S</strong>: earth
+              taken from the sheath/earth terminal, no PME label, nothing obvious.
+            </p>
+
+            <p>
+              Then you’re asked to supply a <strong>metal outbuilding</strong>, outdoor equipment,
+              or fit an <strong>EV charger</strong> — and you hear:
+            </p>
+
+            <blockquote>
+              <p>“Treat it as TN-C-S (PME).”</p>
+            </blockquote>
+
+            <p>
+              That can feel like a contradiction. It isn’t, once you separate two ideas:
+            </p>
+
+            <p>
+              If you’re in Colchester or North Essex and need help with earthing, outbuildings, or EV
+              charger considerations, bookings are via
+              <a href="https://www.graylogic.uk" target="_blank" rel="noreferrer">Gray Logic Electrical</a>.
+            </p>
+
+            <ul>
+              <li>
+                What the supply <strong>presents as</strong> at the property (what you can actually
+                see and test at the origin)
+              </li>
+              <li>
+                What the upstream network <strong>might behave like</strong> under a rare but
+                important condition: <strong>loss of the neutral/PEN reference</strong>
+              </li>
+            </ul>
+
+            <p>
+              This post explains why that distinction exists, why it often doesn’t change a normal
+              EICR outcome, and why it <em>does</em> change how we treat exported earth outdoors.
+            </p>
+
+            <button
+              class="article-note-toggle"
+              type="button"
+              aria-expanded="false"
+              style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); width: 4.5rem; height: auto; min-height: 180px; padding: 1rem 0.6rem; border: 1px solid var(--border); border-right: 1px solid var(--border); background: var(--panel); text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; font-size: 0.75rem; color: var(--accent); margin: 0; font-family: inherit; border-radius: 0; transition: all 0.3s ease; z-index: 1001; writing-mode: vertical-rl; text-orientation: mixed; line-height: 1.2;"
+            >
+              <span
+                class="toggle-icon"
+                style="font-size: 1.4rem; transition: transform 0.2s; writing-mode: horizontal-tb;"
+                >‣</span
+              >
+              <span
+                style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.1em; white-space: nowrap;"
+                >TECH NOTE</span
+              >
+            </button>
+
+            <aside
+              class="article-note article-note--technical article-note--expandable"
+              style="position: fixed; right: 0; top: 50%; transform: translateY(-50%) translateX(100%); width: min(45vw, 520px); max-height: 90vh; background: var(--panel); border: 1px solid var(--border); border-right: none; border-radius: var(--radius-md) 0 0 var(--radius-md); box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6); z-index: 1000; display: flex; flex-direction: column; overflow: hidden; transition: transform 0.3s ease;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: space-between; padding: 1.4rem; border-bottom: 1px solid var(--border-soft); flex-shrink: 0;"
+              >
+                <strong style="font-size: 0.9rem;">TECH NOTE</strong>
+                <button
+                  class="article-note-close"
+                  type="button"
+                  style="background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem; padding: 0; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s;"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div class="article-note-content" style="flex: 1; overflow-y: auto; padding: 0;">
+                <div style="padding: 0 1.4rem 1.4rem;">
+                  <p class="article-note-label" style="margin-top: 1rem;">
+                    “TN-S at the head” vs “treat as PME” — the technical why
+                  </p>
+
+                  <h3 style="margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem;">
+                    1) Hybrid networks: the formal description
+                  </h3>
+                  <ul style="margin: 1.1rem 0; line-height: 1.75;">
+                    <li>
+                      “Hybrid” here means SNE and CNE sections co-existing in the LV network due to
+                      repairs/diversions/reinforcement over time.
+                    </li>
+                    <li>
+                      ENA Engineering Recommendation <strong>G12</strong> covers hybrid arrangements
+                      and the application of PME facilities where SNE/CNE sections exist together.
+                    </li>
+                    <li>
+                      Some DNO LV design standards also treat existing networks as PME-enabled for
+                      design purposes even if originally SNE, referencing hybrid/PME-enabled
+                      definitions.
+                    </li>
+                  </ul>
+
+                  <p><strong>Links</strong></p>
+                  <ul style="margin: 0.9rem 0 1.2rem; line-height: 1.75;">
+                    <li>
+                      <a
+                        href="/assets/pdf/ENA_EREC_G12_Issue-5_2023.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        >ENA G12 Issue 5 (2023) (PDF)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/assets/pdf/eds-08-2000-lv-network-design.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        >UKPN EDS 08-2000 LV Network Design (PDF)</a
+                      >
+                    </li>
+                  </ul>
+
+                  <h3 style="margin-top: 1.4rem; margin-bottom: 0.7rem; font-size: 0.95rem;">
+                    2) Why “0.35 / 0.8” doesn’t force re-engineering
+                  </h3>
+                  <ul style="margin: 1.1rem 0; line-height: 1.75;">
+                    <li>
+                      The “0.35 Ω (PME) / 0.8 Ω (TN-S)” figures are widely used as
+                      <em>typical maximum</em> planning/declaration values.
+                    </li>
+                    <li>
+                      The IET has stated DNOs are under <strong>no obligation</strong> to
+                      design/maintain networks to provide a particular maximum Ze value, and that
+                      these values are best understood as typical design guidance.
+                    </li>
+                    <li>
+                      DNO standards use similar language (“typical maximum”) and indicate higher
+                      values can exist while installations can still comply by design/verification.
+                    </li>
+                  </ul>
+
+                  <p><strong>Links</strong></p>
+                  <ul style="margin: 0.9rem 0 1.2rem; line-height: 1.75;">
+                    <li>
+                      <a
+                        href="https://electrical.theiet.org/wiring-matters/years/2018/72-september-2018/earth-fault-loop-impedance-revision-of-ena-engineering-recommendation-p23/"
+                        target="_blank"
+                        rel="noreferrer"
+                        >IET Wiring Matters – ENA ER P23 (Sep 2018)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/assets/pdf/EART-01-002.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        >SP Energy Networks – EART-01-002 (PDF)</a
+                      >
+                    </li>
+                  </ul>
+
+                  <h3 style="margin-top: 1.4rem; margin-bottom: 0.7rem; font-size: 0.95rem;">
+                    3) Open-PEN / reference loss: the mechanism (plain English)
+                  </h3>
+                  <ul style="margin: 1.1rem 0; line-height: 1.75;">
+                    <li>
+                      This is not primarily an “ADS loop impedance” problem — it’s a “lost
+                      reference” problem.
+                    </li>
+                    <li>
+                      In a PME/hybrid reference-loss event, the installation earthing system can
+                      rise in potential relative to true earth.
+                    </li>
+                    <li>
+                      Indoors, bonding tends to reduce dangerous touch voltages between
+                      simultaneously accessible metalwork.
+                    </li>
+                    <li>
+                      Outdoors, where the ground is the reference, simultaneous contact risk
+                      increases (exported earth to touchable metalwork becomes the key concern).
+                    </li>
+                  </ul>
+
+                  <h3 style="margin-top: 1.4rem; margin-bottom: 0.7rem; font-size: 0.95rem;">
+                    4) EV charging: why BS 7671 treats it as a special case
+                  </h3>
+                  <ul style="margin: 1.1rem 0; line-height: 1.75;">
+                    <li>
+                      Outdoor EV charging is a high-credibility simultaneous contact scenario
+                      (vehicle body + ground).
+                    </li>
+                    <li>
+                      BS 7671 section 722 restricts outdoor EV charging from PME unless permitted
+                      protective measures are used (Reg 722.411.4.1).
+                    </li>
+                    <li>
+                      IET commentary and the EV Code of Practice discuss practical approaches
+                      (including open-PEN devices/arrangements) and limitations.
+                    </li>
+                  </ul>
+
+                  <p><strong>Links</strong></p>
+                  <ul style="margin: 0.9rem 0 1.2rem; line-height: 1.75;">
+                    <li>
+                      <a
+                        href="https://electrical.theiet.org/wiring-matters/years/2020/79-march-2020/bs-76712018plusa1/"
+                        target="_blank"
+                        rel="noreferrer"
+                        >IET Wiring Matters – Section 722 context (Mar 2020)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://electrical.theiet.org/wiring-matters/years/2020/80-may-2020/the-iet-code-of-practice-for-electric-vehicle-charging-equipment-installation-4th-edition/"
+                        target="_blank"
+                        rel="noreferrer"
+                        >IET Wiring Matters – EV Code of Practice (May 2020)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://electrical.theiet.org/wiring-matters/years/2025/105-may-2025/neutral-current-diversion-ncd-industry-research-update/"
+                        target="_blank"
+                        rel="noreferrer"
+                        >IET Wiring Matters – Neutral current diversion update (May 2025)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.eca.co.uk/CMSPages/GetFile.aspx?guid=8cc721f4-ddcd-405e-b89a-83cb366a9f97"
+                        target="_blank"
+                        rel="noreferrer"
+                        >ECA guidance (EV / TN-S discussion) (PDF)</a
+                      >
+                    </li>
+                  </ul>
+
+                  <h3 style="margin-top: 1.4rem; margin-bottom: 0.7rem; font-size: 0.95rem;">
+                    5) About “1 in 300 million” style claims
+                  </h3>
+                  <p>
+                    ESQCR incidents are reportable to HSE, but public reporting doesn’t provide a
+                    tidy “open-PEN fatalities” figure you can cite as a clean official number.
+                  </p>
+
+                  <p><strong>Links</strong></p>
+                  <ul style="margin: 0.9rem 0 0.2rem; line-height: 1.75;">
+                    <li>
+                      <a
+                        href="https://www.hse.gov.uk/esqcr/what-must-be-reported.htm"
+                        target="_blank"
+                        rel="noreferrer"
+                        >HSE – what must be reported (ESQCR)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.hse.gov.uk/esqcr/when-should-I-report.htm"
+                        target="_blank"
+                        rel="noreferrer"
+                        >HSE – when to report</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.legislation.gov.uk/uksi/2002/2665/regulation/28"
+                        target="_blank"
+                        rel="noreferrer"
+                        >ESQCR Reg 28 (information on request)</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.legislation.gov.uk/uksi/2002/2665/regulation/24"
+                        target="_blank"
+                        rel="noreferrer"
+                        >ESQCR Reg 24 (consumer premises duties)</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </aside>
+
+            <h2>1) Why “TN-S at the intake” doesn’t always mean “TN-S in the street”</h2>
+            <p>
+              Distribution networks evolve. Older areas were built one way, then repaired, diverted,
+              reinforced, extended — sometimes many times over decades.
+            </p>
+            <p>
+              A very common outcome is a <strong>hybrid network</strong>: parts of the LV system are
+              one arrangement, other parts have been altered using modern methods (often PME-enabled
+              sections). Your cut-out can still present TN-S at the property even if upstream
+              sections are no longer “textbook TN-S all the way back”.
+            </p>
+            <p>
+              That’s the entire point:
+              <strong
+                >The intake can present TN-S, while the upstream network — in a reference-loss
+                scenario — behaves closer to PME/hybrid.</strong
+              >
+            </p>
+            <p>
+              (If you want the formal wording and how DNOs describe this, see the TECH NOTE panel.)
+            </p>
+
+            <h2>2) Why DNOs and EV guidance often say “treat it as TN-C-S”</h2>
+            <p>
+              This isn’t “because the DNO couldn’t be bothered” — it’s because you can’t guarantee
+              the upstream topology and it can change in the future.
+            </p>
+            <p>
+              For normal indoor circuits, that distinction rarely changes what we do (because we’re
+              verifying the installation’s protective measures and condition). But for
+              <strong>outdoor touch risk</strong>, it becomes much more important.
+            </p>
+            <p>
+              EV charging is the clearest example, because it is <em>designed around outdoor
+              simultaneous contact</em> (vehicle body + ground), and BS 7671 section 722 is built on
+              that reality.
+            </p>
+
+            <h2>
+              3) The EICR confusion: “It looks TN-S, Ze is 0.55 Ω… so why am I being told PME?”
+            </h2>
+            <p>This is the scenario that triggers online arguments:</p>
+            <ul>
+              <li>Intake presents as TN-S</li>
+              <li>Ze measures something like <strong>0.55 Ω</strong></li>
+              <li>Someone says: “If we treat it as PME, shouldn’t that be ‘too high’?”</li>
+            </ul>
+
+            <p>The practical answer is:</p>
+            <ul>
+              <li>
+                An EICR is a <strong>verification report</strong>. We record what’s observed at the
+                origin, we measure and verify, and we code based on <strong>risk and evidence</strong>.
+              </li>
+              <li>
+                “Treat it as PME” is usually <strong>design caution for outdoor touch risk</strong>,
+                not a demand to rewrite the intake label on every certificate.
+              </li>
+            </ul>
+
+            <p>
+              So the sensible position is often:
+              <strong
+                >Record what you can evidence at the origin for the purposes of inspection and
+                testing, but design/advise conservatively where outdoor touch risk exists.</strong
+              >
+            </p>
+
+            <h2>4) Where it <em>does</em> matter: exported earth to outdoor metalwork</h2>
+            <p>This is the key point most people miss.</p>
+
+            <h3>Indoors: you usually have an equipotential zone</h3>
+            <p>
+              Bonding + CPCs are intended to reduce dangerous touch voltages between things you can
+              touch at the same time.
+            </p>
+
+            <h3>Outdoors: you can lose that protection</h3>
+            <p>
+              When you export earth to a <strong>metal outbuilding</strong>, metal-clad shed, steel
+              frame workshop, or outdoor equipment, you create a realistic scenario where someone
+              can touch:
+            </p>
+            <ul>
+              <li>metalwork connected to the installation’s earthing system <strong>and</strong></li>
+              <li>true earth (wet ground, concrete, barefoot conditions)</li>
+            </ul>
+
+            <p>
+              That’s where a “reference loss” type event matters.
+            </p>
+
+            <p>
+              And this is why you’ll hear: “Treat it like PME.”
+            </p>
+
+            <p>
+              Not because “TN-S is fake”, but because the <strong>consequence outdoors</strong> is
+              higher and the <strong>uncertainty upstream</strong> is outside the installer’s control.
+            </p>
+
+            <h2>5) “If the neutral/PEN drops, does all metalwork become live?”</h2>
+            <p>
+              In a PME/hybrid reference-loss scenario, the installation earthing system can rise in
+              potential relative to true earth.
+            </p>
+
+            <p>Two practical clarifications:</p>
+            <ul>
+              <li>
+                <strong>Indoors</strong>, with correct bonding, the worst “touch between two different
+                references” scenarios are less likely because simultaneously accessible metalwork is
+                kept closer together (potential-wise).
+              </li>
+              <li>
+                <strong>Outdoors</strong>, the ground is the reference. If you can touch
+                exported/bonded metalwork while standing on true earth, the touch voltage risk
+                becomes more meaningful.
+              </li>
+            </ul>
+
+            <p>
+              So the scary sentence (“all metal becomes live”) is <em>directionally</em> describing
+              the same mechanism, but the real hazard is:
+              <strong
+                >touching outdoor metalwork referenced to the installation earth while you are
+                referenced to true earth.</strong
+              >
+            </p>
+
+            <h2>6) If it’s so serious, why don’t we see people dying all the time?</h2>
+            <p>Because you usually need a stack of conditions at once:</p>
+            <ul>
+              <li>a reference-loss event upstream</li>
+              <li>meaningful loading/current at that moment</li>
+              <li>a person in a high-exposure contact scenario (often outdoors)</li>
+              <li>low enough body/ground resistance to permit dangerous current</li>
+              <li>enough time for harm to occur</li>
+            </ul>
+
+            <p>Serious outcomes appear rare in domestic settings.</p>
+
+            <h3>Illustrative “1 in 300 million” (hypothetical, not an official statistic)</h3>
+            <p>
+              You’ll sometimes see people quote a number like “1 in 300 million”.
+            </p>
+            <p>
+              There isn’t a neat public dataset that isolates fatalities <em>specifically</em>
+              attributable to open-PEN/reference-loss as a clean official count, so any probability
+              number needs to be clearly labelled as illustrative.
+            </p>
+
+            <p>
+              Here’s what an <strong>illustrative</strong> calculation looks like, just to show why
+              you can end up with a headline that small:
+            </p>
+            <ul>
+              <li>
+                Assume (hypothetically) <strong>2 fatalities in 10 years</strong> attributable
+                specifically to open-PEN/reference-loss conditions
+              </li>
+              <li>Assume a population of <strong>~70,000,000</strong></li>
+              <li>Person-years ≈ 70,000,000 × 10 = 700,000,000</li>
+              <li>Risk ≈ 2 / 700,000,000 ≈ 2.86×10<sup>−9</sup> per person-year</li>
+              <li>
+                That’s roughly <strong>1 in 350 million</strong> person-years (i.e. “on the order of
+                1 in 300 million”)
+              </li>
+            </ul>
+
+            <p>
+              Again: the weak point is the fatality count — without a published dataset that
+              isolates those cases, this stays illustrative.
+            </p>
+
+            <h2>7) Best practice: what we actually do when outdoor metalwork is involved</h2>
+            <p>
+              This is where I stop arguing about labels and start controlling risk.
+            </p>
+
+            <h3>A) Separate “EICR recording” from “outdoor design caution”</h3>
+            <ul>
+              <li>
+                <strong>EICR / verification:</strong> record what’s observed at the origin, measure
+                and verify protective measures and bonding, code based on risk and evidence.
+              </li>
+              <li>
+                <strong>Outdoor work:</strong> treat it as higher-consequence and choose protective
+                measures accordingly.
+              </li>
+            </ul>
+
+            <h3>B) For EV charging: follow Section 722</h3>
+            <p>
+              EV charging has explicit requirements because it’s an outdoor touch-risk scenario.
+              The right solution is the one that is compliant for that specific installation.
+            </p>
+
+            <h3>C) For metal outbuildings/exported earth: design for the scenario</h3>
+            <p>
+              The right approach depends on the site, but the decision is driven by questions like:
+            </p>
+            <ul>
+              <li>Is the outbuilding metal clad / steel frame / significant touchable metal?</li>
+              <li>Are people likely to be well-earthed (wet ground, bare feet, concrete slab)?</li>
+              <li>Are you exporting earth in a way that creates unintended parallel paths?</li>
+              <li>Is the protective arrangement robust if the supply reference is lost upstream?</li>
+            </ul>
+
+            <p>
+              There isn’t one universal wiring diagram that suits every outbuilding — which is why
+              good electricians look at the site and document the reasoning.
+            </p>
+
+            <h3>D) If something genuinely doesn’t add up, that’s when enquiry is justified</h3>
+            <p>
+              If readings are unstable, behaviour is odd, or the intake arrangement appears unsafe
+              or inconsistent, enquiry becomes justified and the proper information route exists
+              under ESQCR.
+            </p>
+
+            <h2>The bottom line</h2>
+            <ul>
+              <li>
+                “TN-S” at the service head can be a fair description of the intake <strong>and</strong>
+                the upstream network can still be hybrid/PME-enabled in a reference-loss scenario.
+              </li>
+              <li>This often doesn’t change a typical EICR outcome.</li>
+              <li>
+                Where it becomes a genuine safety/design issue is <strong>exported earth outdoors</strong>,
+                especially metal outbuildings and EV charging.
+              </li>
+            </ul>
+
+            <div class="article-cta">
+            <h2>Need help in Colchester?</h2>
+            <p>
+              If you’ve got a metal outbuilding, an outdoor supply, or an EV charger planned (or an
+              EICR that’s raised earthing questions), I can test it properly, explain what the
+              results do and don’t mean, and recommend a route that’s defensible — and safe — for
+              your installation.
+            </p>
+            <ul>
+              <li>
+                <strong>Main site &amp; bookings:</strong>
+                <a href="https://www.graylogic.uk" target="_blank" rel="noreferrer">graylogic.uk</a>
+              </li>
+              <li>
+                <strong>Local landing:</strong>
+                <a
+                  href="https://colchester.electrician.onl"
+                  target="_blank"
+                  rel="noreferrer"
+                  >colchester.electrician.onl</a
+                >
+              </li>
+            </ul>
+            </div>
+            </section>
+          </article>
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          © <span id="year"></span> Colchester Electrician Notes — written by
+          Darren Gray, Gray Logic Electrical. <a href="../disclaimer.html">Disclaimer</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

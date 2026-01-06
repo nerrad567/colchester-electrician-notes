@@ -1,37 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <title>About this site | Colchester Electrician Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Why this site exists, who writes it, and how it links to Gray Logic Electrical and my technical portfolio."
+      content="About Colchester Electrician Notes: written by Darren Gray, a NICEIC-registered electrician in Colchester & North Essex, and how it links to Gray Logic Electrical."
+    />
+    <meta name="author" content="Darren Gray" />
+    <meta property="og:site_name" content="Colchester Electrician Notes" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About this site | Colchester Electrician Notes" />
+    <meta
+      property="og:description"
+      content="Written by Darren Gray, a NICEIC-registered electrician in Colchester & North Essex. How this notebook links to Gray Logic Electrical."
+    />
+    <meta property="og:url" content="https://www.colchester-electrician.com/about.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="About this site | Colchester Electrician Notes" />
+    <meta
+      name="twitter:description"
+      content="Written by Darren Gray, a NICEIC-registered electrician in Colchester & North Essex. How this notebook links to Gray Logic Electrical."
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="canonical" href="https://www.colchester-electrician.com/about.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.colchester-electrician.com/about.html#webpage",
+            "url": "https://www.colchester-electrician.com/about.html",
+            "name": "About this site | Colchester Electrician Notes",
+            "about": { "@id": "https://www.colchester-electrician.com/#business" },
+            "publisher": { "@id": "https://www.colchester-electrician.com/#business" }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://www.colchester-electrician.com/#business",
+            "name": "Gray Logic Electrical",
+            "url": "https://www.graylogic.uk/",
+            "areaServed": ["Colchester", "North Essex"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Colchester",
+              "addressRegion": "Essex",
+              "addressCountry": "GB"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <a href="index.html" class="logo">
-          <span class="logo-mark"></span>
-          Colchester&nbsp;Electrician&nbsp;Notes
-        </a>
-
-        <nav class="nav">
-          <a href="index.html" class="nav-link">Articles</a>
-          <a href="about.html" class="nav-link nav-link--active"
-            >About this site</a
-          >
-          <a
-            href="https://www.graylogic.uk"
-            class="nav-link nav-link--accent"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Gray&nbsp;Logic&nbsp;Electrical →
+        <div class="site-header-inner">
+          <a href="index.html" class="logo">
+            <span class="logo-mark"></span>
+            Colchester&nbsp;Electrician&nbsp;Notes
           </a>
-        </nav>
+
+          <nav class="nav">
+            <a href="about.html" class="nav-link nav-link--active"
+              >About this site</a
+            >
+            <a href="disclaimer.html" class="nav-link">Disclaimer</a>
+            <a
+              href="https://www.graylogic.uk"
+              class="nav-link nav-link--accent"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Gray&nbsp;Logic&nbsp;Electrical →
+            </a>
+          </nav>
+        </div>
       </header>
 
       <main class="shell" aria-label="About this site">
@@ -39,9 +86,10 @@
           <header class="section-header">
             <h1 class="hero-title hero-title--small">About this site</h1>
             <p class="hero-lead hero-lead--narrow">
-              I’m Darren, an electrician based in Colchester. This site is where
-              I park short write-ups from real jobs – the sort of thing I’d post
-              on social media, but in a place I actually control.
+              I’m Darren, a NICEIC-registered electrician based in Colchester,
+              covering North Essex. This site is where I park short write-ups
+              from real jobs – useful context for customers, and the detail
+              that doesn’t fit on a standard business page.
             </p>
           </header>
 
@@ -129,7 +177,7 @@
       <footer class="site-footer">
         <p>
           © <span id="year"></span> Colchester Electrician Notes — Darren Gray,
-          Gray Logic Electrical.
+          Gray Logic Electrical. <a href="disclaimer.html">Disclaimer</a>.
         </p>
         <p>
           For actual work, see

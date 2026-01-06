@@ -1,36 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <title>Colchester Electrician Notes | Gray Logic Electrical</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="On-site notes from a working electrician in Colchester – real jobs, EICRs, EV charging, consumer units and fault finding. Written by Gray Logic Electrical."
+      content="On-site notes from a NICEIC-registered electrician in Colchester & North Essex – real jobs, EICRs, EV charging, consumer units and fault finding. Gray Logic Electrical."
+    />
+    <meta name="author" content="Darren Gray" />
+    <meta property="og:site_name" content="Colchester Electrician Notes" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Colchester Electrician Notes | Gray Logic Electrical"
+    />
+    <meta
+      property="og:description"
+      content="On-site notes from a NICEIC-registered electrician in Colchester & North Essex – real jobs, EICRs, EV charging, consumer units and fault finding."
+    />
+    <meta property="og:url" content="https://www.colchester-electrician.com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Colchester Electrician Notes | Gray Logic Electrical"
+    />
+    <meta
+      name="twitter:description"
+      content="On-site notes from a NICEIC-registered electrician in Colchester & North Essex – real jobs, EICRs, EV charging, consumer units and fault finding."
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="canonical" href="https://www.colchester-electrician.com/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.colchester-electrician.com/#website",
+            "url": "https://www.colchester-electrician.com/",
+            "name": "Colchester Electrician Notes",
+            "publisher": { "@id": "https://www.colchester-electrician.com/#business" }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://www.colchester-electrician.com/#business",
+            "name": "Gray Logic Electrical",
+            "url": "https://www.graylogic.uk/",
+            "areaServed": ["Colchester", "North Essex"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Colchester",
+              "addressRegion": "Essex",
+              "addressCountry": "GB"
+            },
+            "knowsAbout": [
+              "EICR",
+              "Electrical fault finding",
+              "Consumer unit upgrades",
+              "EV charger installation",
+              "Earthing arrangements (TN-S/TN-C-S/PME)"
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <a href="index.html" class="logo">
-          <span class="logo-mark"></span>
-          Colchester&nbsp;Electrician&nbsp;Notes
-        </a>
-
-        <nav class="nav">
-          <a href="index.html" class="nav-link nav-link--active">Articles</a>
-          <a href="about.html" class="nav-link">About this site</a>
-          <a
-            href="https://www.graylogic.uk"
-            class="nav-link nav-link--accent"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Gray&nbsp;Logic&nbsp;Electrical →
+        <div class="site-header-inner">
+          <a href="index.html" class="logo">
+            <span class="logo-mark"></span>
+            Colchester&nbsp;Electrician&nbsp;Notes
           </a>
-        </nav>
+
+          <nav class="nav">
+            <a href="about.html" class="nav-link">About this site</a>
+            <a href="disclaimer.html" class="nav-link">Disclaimer</a>
+            <a
+              href="https://www.graylogic.uk"
+              class="nav-link nav-link--accent"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Gray&nbsp;Logic&nbsp;Electrical →
+            </a>
+          </nav>
+        </div>
       </header>
 
       <main class="shell" aria-label="Colchester Electrician Notes">
@@ -42,11 +100,12 @@
 
           <h1 class="hero-title">
             Real jobs. Real faults.<br />
-            <span class="hero-title-accent">No stock photos. No fluff.</span>
+            <span class="hero-title-accent">No stock photos. Straight answers.</span>
           </h1>
 
           <p class="hero-lead">
-            I’m Darren at <strong>Gray Logic Electrical</strong> in Colchester.
+            I’m Darren at <strong>Gray Logic Electrical</strong> — a NICEIC-registered electrician
+            covering Colchester and North Essex.
             This isn’t a sales page. It’s a running log of what I see on real
             jobs: EICRs, consumer units, fault-finding, and the occasional
             horror show.
@@ -61,7 +120,6 @@
             >
               Visit Gray Logic Electrical
             </a>
-            <a href="#articles" class="btn btn-ghost">Read the latest notes</a>
           </div>
         </section>
 
@@ -89,8 +147,44 @@
             </button>
 
             <div class="articles-grid" data-articles-track>
+              <!-- NEW Article: TN-S vs PME hybrid / exported earth -->
+              <article class="card card-article">
+                <a
+                  class="card-stretch-link"
+                  href="posts/tn-s-service-head-pme-street.html"
+                  aria-label="Read: TN-S at the service head… PME in the street? Why both can be “true” (and when it matters)"
+                ></a>
+                <header class="card-header">
+                  <p class="card-kicker">
+                    Earthing · EICR · Outbuildings · EV charging
+                  </p>
+                  <h3 class="card-title">
+                    <a href="posts/tn-s-service-head-pme-street.html">
+                      TN-S at the service head… PME in the street? Why both can be “true” (and when it matters)
+                    </a>
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  Why an intake can present TN-S while guidance still says “treat it as PME” for exported earth.
+                  Covers hybrid networks, EICR recording vs outdoor touch risk, metal outbuildings and EV charging.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">~9 min read</span>
+                  <a
+                    href="posts/tn-s-service-head-pme-street.html"
+                    class="card-link"
+                    >Read note →</a
+                  >
+                </footer>
+              </article>
+
               <!-- NEW Article: meter box / customer wiring -->
               <article class="card card-article">
+                <a
+                  class="card-stretch-link"
+                  href="posts/meter-box-ev-charger-wiring.html"
+                  aria-label="Read: Why you shouldn’t put customer wiring inside a meter box"
+                ></a>
                 <header class="card-header">
                   <p class="card-kicker">Meter boxes · EV charging · BS 7671</p>
                   <h3 class="card-title">
@@ -116,6 +210,11 @@
 
               <!-- Article 1 -->
               <article class="card card-article">
+                <a
+                  class="card-stretch-link"
+                  href="posts/eicr-in-colchester.html"
+                  aria-label="Read: What actually happens on an EICR in Colchester?"
+                ></a>
                 <header class="card-header">
                   <p class="card-kicker">EICR · Colchester</p>
                   <h3 class="card-title">
@@ -139,6 +238,11 @@
 
               <!-- Article 2: DMX job -->
               <article class="card card-article">
+                <a
+                  class="card-stretch-link"
+                  href="posts/dmx-stage-lighting-colchester.html"
+                  aria-label="Read: DMX stage lighting faults in a Colchester public building"
+                ></a>
                 <header class="card-header">
                   <p class="card-kicker">DMX lighting · Public building</p>
                   <h3 class="card-title">
@@ -165,6 +269,11 @@
 
               <!-- Article: tripping RCD in terrace -->
               <article class="card card-article">
+                <a
+                  class="card-stretch-link"
+                  href="posts/tripping-rcd-terrace-colchester.html"
+                  aria-label="Read: A tripping RCD in a Colchester terrace – where the fault actually was"
+                ></a>
                 <header class="card-header">
                   <p class="card-kicker">Fault finding · Terraced house</p>
                   <h3 class="card-title">
@@ -192,6 +301,11 @@
 
               <!-- Article 5: Consumer units -->
               <article class="card card-article">
+                <a
+                  class="card-stretch-link"
+                  href="posts/consumer-unit-failures-colchester.html"
+                  aria-label="Read: Your consumer unit looks fine — why the EICR still flagged it"
+                ></a>
                 <header class="card-header">
                   <p class="card-kicker">Consumer units · EICR · Colchester</p>
                   <h3 class="card-title">
@@ -212,6 +326,71 @@
                     class="card-link"
                     >Read note →</a
                   >
+                </footer>
+              </article>
+
+              <!-- Coming soon placeholders -->
+              <article class="card card-article card-article--placeholder">
+                <header class="card-header">
+                  <p class="card-kicker">Coming soon · RCDs · Older properties</p>
+                  <h3 class="card-title">
+                    RCD vs RCBO upgrades in older Colchester homes
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  When a split-load board starts becoming a nuisance, what RCBO upgrades actually change,
+                  and the practical/realistic outcomes people notice day-to-day.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">Coming soon</span>
+                </footer>
+              </article>
+
+              <article class="card card-article card-article--placeholder">
+                <header class="card-header">
+                  <p class="card-kicker">Coming soon · EICR · Bonding</p>
+                  <h3 class="card-title">
+                    Main bonding: what gets checked (and why it matters)
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  A plain-English run through of gas/water bonding on an EICR, common fail points,
+                  and what a tidy, compliant fix usually looks like.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">Coming soon</span>
+                </footer>
+              </article>
+
+              <article class="card card-article card-article--placeholder">
+                <header class="card-header">
+                  <p class="card-kicker">Coming soon · Outdoors · RCD protection</p>
+                  <h3 class="card-title">
+                    Garden sockets &amp; outside lights: the usual faults
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  Water ingress, shared neutrals, borrowed feeds and DIY joins — the patterns that keep turning up,
+                  and how we test safely without guesswork.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">Coming soon</span>
+                </footer>
+              </article>
+
+              <article class="card card-article card-article--placeholder">
+                <header class="card-header">
+                  <p class="card-kicker">Coming soon · EV charging · Earthing</p>
+                  <h3 class="card-title">
+                    EV chargers and earthing: what changes compared to “normal” circuits
+                  </h3>
+                </header>
+                <p class="card-excerpt">
+                  A practical overview of the earthing and safety considerations that make EV installs different,
+                  especially around exported earth and outdoor touch risk.
+                </p>
+                <footer class="card-footer">
+                  <span class="card-meta">Coming soon</span>
                 </footer>
               </article>
 
@@ -296,7 +475,7 @@
       <footer class="site-footer">
         <p>
           © <span id="year"></span> Colchester Electrician Notes — written by
-          Darren Gray, Gray Logic Electrical.
+          Darren Gray, Gray Logic Electrical. <a href="disclaimer.html">Disclaimer</a>.
         </p>
         <p>
           This is a standalone writing project, not a rating site. For actual

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <title>
@@ -9,39 +9,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A real fault-finding job on a tripping RCD in a typical Colchester terrace – why the RCD itself wasn’t the problem, and where the fault actually was."
+      content="A real fault-finding job on a tripping RCD in a Colchester terrace — why the RCD wasn’t the problem and where the fault actually was."
+    />
+    <meta name="author" content="Darren Gray" />
+    <meta property="og:site_name" content="Colchester Electrician Notes" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="A tripping RCD in a Colchester terrace — where the fault actually was"
+    />
+    <meta
+      property="og:description"
+      content="A real fault-finding job on a tripping RCD in a Colchester terrace — why the RCD wasn’t the problem and where the fault actually was."
+    />
+    <meta
+      property="og:url"
+      content="https://www.colchester-electrician.com/posts/tripping-rcd-terrace-colchester.html"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="A tripping RCD in a Colchester terrace — where the fault actually was"
+    />
+    <meta
+      name="twitter:description"
+      content="A real fault-finding job on a tripping RCD in a Colchester terrace — why the RCD wasn’t the problem and where the fault actually was."
     />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link
       rel="canonical"
       href="https://www.colchester-electrician.com/posts/tripping-rcd-terrace-colchester.html"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": "https://www.colchester-electrician.com/posts/tripping-rcd-terrace-colchester.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.colchester-electrician.com/posts/tripping-rcd-terrace-colchester.html"
+        },
+        "headline": "A tripping RCD in a Colchester terrace — where the fault actually was",
+        "description": "A real fault-finding job on a tripping RCD in a Colchester terrace — why the RCD wasn’t the problem and where the fault actually was.",
+        "author": { "@type": "Person", "name": "Darren Gray" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Gray Logic Electrical",
+          "url": "https://www.graylogic.uk/"
+        },
+        "about": ["Fault finding", "RCD tripping", "Colchester"]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <a href="../index.html" class="logo">
-          <span class="logo-mark"></span>
-          Colchester&nbsp;Electrician&nbsp;Notes
-        </a>
-
-        <nav class="nav">
-          <a href="../index.html" class="nav-link">Articles</a>
-          <a href="../about.html" class="nav-link">About this site</a>
-          <a
-            href="https://www.graylogic.uk"
-            class="nav-link nav-link--accent"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Gray&nbsp;Logic&nbsp;Electrical →
+        <div class="site-header-inner">
+          <a href="../index.html" class="logo">
+            <span class="logo-mark"></span>
+            Colchester&nbsp;Electrician&nbsp;Notes
           </a>
-        </nav>
+
+          <nav class="nav">
+            <a href="../about.html" class="nav-link">About this site</a>
+            <a href="../disclaimer.html" class="nav-link">Disclaimer</a>
+            <a
+              href="https://www.graylogic.uk"
+              class="nav-link nav-link--accent"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Gray&nbsp;Logic&nbsp;Electrical →
+            </a>
+          </nav>
+        </div>
       </header>
 
-      <main class="shell shell--article" aria-label="Article">
-        <article class="article">
-          <header class="article-header">
+      <header class="article-header" aria-label="Article header">
             <p class="article-kicker">Fault finding · Terraced house</p>
             <h1 class="article-title">
               A tripping RCD in a Colchester terrace – where the fault actually
@@ -52,74 +97,118 @@
             </p>
           </header>
 
-          <section class="article-body">
-            <aside class="article-note article-note--technical">
-              <p class="article-note-label">
-                Technical note · For electricians and tech managers
-              </p>
+      <main class="shell shell--article" aria-label="Article">
+          <article class="article">
+            <section class="article-body">
+            <button
+              class="article-note-toggle"
+              type="button"
+              aria-expanded="false"
+              style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); width: 4.5rem; height: auto; min-height: 180px; padding: 1rem 0.6rem; border: 1px solid var(--border); border-right: 1px solid var(--border); background: var(--panel); text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; font-size: 0.75rem; color: var(--accent); margin: 0; font-family: inherit; border-radius: 0; transition: all 0.3s ease; z-index: 1001; writing-mode: vertical-rl; text-orientation: mixed; line-height: 1.2;"
+            >
+              <span
+                class="toggle-icon"
+                style="font-size: 1.4rem; transition: transform 0.2s; writing-mode: horizontal-tb;"
+                >‣</span
+              >
+              <span
+                style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.1em; white-space: nowrap;"
+                >TECH NOTE</span
+              >
+            </button>
 
-              <h3>RCDs, leakage and BS 7671</h3>
-              <p>
-                In a typical 30&nbsp;mA RCD-protected system, you’ll always have
-                some background earth leakage from filters, appliances and long
-                cable runs. BS&nbsp;7671 expects RCDs to operate within defined
-                trip times at certain residual currents – the device is there to
-                disconnect when leakage reaches a level that could be harmful.
-              </p>
-              <p>
-                The temptation is to blame the RCD and swap it, but unless
-                testing shows the device itself is faulty (failing RCD tests or
-                tripping with no connected load), the more honest approach is to
-                find and fix the sources of leakage first.
-              </p>
+            <aside
+              class="article-note article-note--technical article-note--expandable"
+              style="position: fixed; right: 0; top: 50%; transform: translateY(-50%) translateX(100%); width: min(45vw, 500px); max-height: 90vh; background: var(--panel); border: 1px solid var(--border); border-right: none; border-radius: var(--radius-md) 0 0 var(--radius-md); box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6); z-index: 1000; display: flex; flex-direction: column; overflow: hidden; transition: transform 0.3s ease;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: space-between; padding: 1.4rem; border-bottom: 1px solid var(--border-soft); flex-shrink: 0;"
+              >
+                <strong style="font-size: 0.9rem;">Technical note</strong>
+                <button
+                  class="article-note-close"
+                  type="button"
+                  style="background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem; padding: 0; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s;"
+                >
+                  ✕
+                </button>
+              </div>
 
-              <h3>Division of installation and shared RCDs</h3>
-              <p>
-                A common theme in older properties is multiple circuits piled
-                onto a single RCD – rings, kitchen, outside sockets and sheds
-                all sharing one 30&nbsp;mA device. The Wiring Regulations
-                emphasise sensible division of the installation so a single
-                fault doesn’t take out “everything critical” in one go.
-              </p>
-              <p>In practice that means:</p>
-              <ul>
-                <li>
-                  Not relying on one RCD to look after half the house,
-                  especially where outside circuits and damp areas are involved.
-                </li>
-                <li>
-                  Considering RCBOs or at least splitting loads so outside and
-                  high-leakage circuits don’t drag the rest over the edge.
-                </li>
-              </ul>
+              <div class="article-note-content" style="flex: 1; overflow-y: auto; padding: 0;">
+                <div style="padding: 0 1.4rem 1.4rem;">
+                  <p class="article-note-label" style="margin-top: 1rem;">
+                    Technical note · For electricians and tech managers
+                  </p>
 
-              <h3>How I’d frame it in a report</h3>
-              <p>
-                On an EICR or fault report, I’m usually clear about the
-                difference between:
-              </p>
-              <ul>
-                <li>
-                  <em
-                    >“RCD nuisance tripping due to cumulative leakage from
-                    multiple circuits and external loads”</em
-                  >, and
-                </li>
-                <li>
-                  <em>“RCD/RCBO itself defective or failing testing”</em>.
-                </li>
-              </ul>
-              <p>
-                The first needs circuit-level fixes and, ideally, better circuit
-                division. The second needs a new device. Mixing them up either
-                wastes money or hides a fault instead of addressing it.
-              </p>
+                  <h3>RCDs, leakage and BS 7671</h3>
+                  <p>
+                    In a typical 30&nbsp;mA RCD-protected system, you’ll always have
+                    some background earth leakage from filters, appliances and long
+                    cable runs. BS&nbsp;7671 expects RCDs to operate within defined
+                    trip times at certain residual currents – the device is there to
+                    disconnect when leakage reaches a level that could be harmful.
+                  </p>
+                  <p>
+                    The temptation is to blame the RCD and swap it, but unless
+                    testing shows the device itself is faulty (failing RCD tests or
+                    tripping with no connected load), the more honest approach is to
+                    find and fix the sources of leakage first.
+                  </p>
+
+                  <h3>Division of installation and shared RCDs</h3>
+                  <p>
+                    A common theme in older properties is multiple circuits piled
+                    onto a single RCD – rings, kitchen, outside sockets and sheds
+                    all sharing one 30&nbsp;mA device. The Wiring Regulations
+                    emphasise sensible division of the installation so a single
+                    fault doesn’t take out “everything critical” in one go.
+                  </p>
+                  <p>In practice that means:</p>
+                  <ul>
+                    <li>
+                      Not relying on one RCD to look after half the house,
+                      especially where outside circuits and damp areas are involved.
+                    </li>
+                    <li>
+                      Considering RCBOs or at least splitting loads so outside and
+                      high-leakage circuits don’t drag the rest over the edge.
+                    </li>
+                  </ul>
+
+                  <h3>How I’d frame it in a report</h3>
+                  <p>
+                    On an EICR or fault report, I’m usually clear about the
+                    difference between:
+                  </p>
+                  <ul>
+                    <li>
+                      <em
+                        >“RCD nuisance tripping due to cumulative leakage from
+                        multiple circuits and external loads”</em
+                      >, and
+                    </li>
+                    <li>
+                      <em>“RCD/RCBO itself defective or failing testing”</em>.
+                    </li>
+                  </ul>
+                  <p>
+                    The first needs circuit-level fixes and, ideally, better circuit
+                    division. The second needs a new device. Mixing them up either
+                    wastes money or hides a fault instead of addressing it.
+                  </p>
+                </div>
+              </div>
             </aside>
             <p>
               This one came in as a fairly common request:
               <em
                 >“The RCD keeps tripping. Can you just change the breaker?”</em
               >
+            </p>
+
+            <p>
+              If you’ve got an RCD that keeps tripping in Colchester or North Essex, bookings are
+              via <a href="https://www.graylogic.uk" target="_blank" rel="noreferrer">Gray Logic Electrical</a>.
             </p>
             <p>
               It’s a typical older Colchester terrace – small consumer unit by
@@ -154,8 +243,6 @@
             <p>
               By the time I arrived, half the house was unplugged and they were
               flicking breakers on and off to “see what helps”.
-            </p>
-
             <h2>First step: make it safe and stop guessing</h2>
             <p>
               Before any fault-finding, I want a safe starting point and a clear
@@ -420,51 +507,48 @@
               <li>Then decide if the device itself needs changing.</li>
             </ol>
 
-            <h2>Need help with a tripping RCD in Colchester?</h2>
-            <p>
-              If you’ve got a Colchester terrace (or anything else) where the
-              RCD trips “for no reason”, you’ve been told to just “change the
-              breaker”, or you’re nervous about using outside sockets and sheds,
-              I can:
-            </p>
-            <ul>
-              <li>Work through the installation methodically.</li>
-              <li>
-                Explain where the problem actually is and what your options are.
-              </li>
-              <li>
-                Prioritise fixes so you’re safe now but also have a sensible
-                plan for future upgrades.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <strong>Main site &amp; bookings:</strong>
-                <a
-                  href="https://www.graylogic.uk"
-                  target="_blank"
-                  rel="noreferrer"
-                  >graylogic.uk</a
-                >
-              </li>
-              <li>
-                <strong>Local landing:</strong>
-                <a
-                  href="https://colchester.electrician.onl"
-                  target="_blank"
-                  rel="noreferrer"
-                  >colchester.electrician.onl</a
-                >
-              </li>
-            </ul>
-          </section>
-        </article>
+            <div class="article-cta">
+              <h2>Need help with a tripping RCD in Colchester?</h2>
+              <p>
+                If you’ve got a Colchester terrace (or anything else) where the
+                RCD trips “for no reason”, you’ve been told to just “change the
+                breaker”, or you’re nervous about using outside sockets and sheds,
+                I can:
+              </p>
+              <ul>
+                <li>Work through the installation methodically.</li>
+                <li>
+                  Explain where the problem actually is and what your options are.
+                </li>
+                <li>
+                  Prioritise fixes so you’re safe now but also have a sensible
+                  plan for future upgrades.
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <strong>Main site &amp; bookings:</strong>
+                  <a href="https://www.graylogic.uk" target="_blank" rel="noreferrer">graylogic.uk</a>
+                </li>
+                <li>
+                  <strong>Local landing:</strong>
+                  <a
+                    href="https://colchester.electrician.onl"
+                    target="_blank"
+                    rel="noreferrer"
+                    >colchester.electrician.onl</a
+                  >
+                </li>
+              </ul>
+            </div>
+            </section>
+          </article>
       </main>
 
       <footer class="site-footer">
         <p>
           © <span id="year"></span> Colchester Electrician Notes — written by
-          Darren Gray, Gray Logic Electrical.
+          Darren Gray, Gray Logic Electrical. <a href="../disclaimer.html">Disclaimer</a>.
         </p>
       </footer>
     </div>
