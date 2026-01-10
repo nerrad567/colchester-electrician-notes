@@ -309,7 +309,7 @@
   const togglePanel = (expand) => {
     const note = document.querySelector(".article-note--expandable");
     const toggle = document.querySelector(".article-note-toggle");
-    const icon = toggle.querySelector(".toggle-icon");
+    if (!note || !toggle) return;
     
     if (expand) {
       // Slide in from right

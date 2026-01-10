@@ -21,7 +21,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --bg: #f8fafc;
     --bg-soft: #f1f5f9;
     --panel: #ffffff;
@@ -76,7 +76,7 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-  body {
+  :root:not([data-theme="dark"]) body {
     background: radial-gradient(
       circle at top,
       #ffffff 0,
@@ -106,16 +106,6 @@ body {
 
 .shell {
   width: 100%;
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .logo {
-    background: #ffffff;
-  }
-}
-
-:root[data-theme="light"] .logo {
-  background: #ffffff;
-}
   max-width: var(--max-width);
   margin: 1.25rem auto 0;
   border-radius: var(--radius-lg);
@@ -232,6 +222,16 @@ body {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted-strong);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .logo {
+    background: #ffffff;
+  }
+}
+
+:root[data-theme="light"] .logo {
+  background: #ffffff;
 }
 
 .logo-mark {
@@ -1251,6 +1251,11 @@ a {
 .article-note--expandable {
   width: 75vw !important;
   max-width: none !important;
+  z-index: 1301 !important;
+}
+
+.article-note-toggle {
+  z-index: 1302 !important;
 }
 
 /* small screens: keep arrows available (plus swipe) */
