@@ -24,3 +24,8 @@ secrets.json
 # Temporary files
 *.tmp
 *.bak
+
+# Executable installers
+*.exe
+*.msi
+
