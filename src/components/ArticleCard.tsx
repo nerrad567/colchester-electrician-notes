@@ -1,8 +1,15 @@
 import Link from "next/link";
-import type { Post } from "@/lib/posts";
 import { ArrowRight } from "lucide-react";
 
-export function ArticleCard({ post }: { post: Post }) {
+interface CardPost {
+  slug: string;
+  title: string;
+  kicker: string;
+  excerpt: string;
+  readTime: string;
+}
+
+export function ArticleCard({ post }: { post: CardPost }) {
   return (
     <article
       data-card

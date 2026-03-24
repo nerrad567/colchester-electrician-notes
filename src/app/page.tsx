@@ -1,5 +1,5 @@
 import { SITE, COMING_SOON } from "@/lib/constants";
-import { posts } from "@/lib/posts";
+import { getPosts } from "@/lib/posts";
 import { ArticleCard, PlaceholderCard } from "@/components/ArticleCard";
 import { ArticleRail } from "@/components/ArticleRail";
 import { getHomeStructuredData } from "@/app/structured-data";
@@ -7,6 +7,8 @@ import { SectionAtmosphere } from "@/components/SectionAtmosphere";
 import { WalkingStickman } from "@/components/WalkingStickman";
 
 export default function Home() {
+  const posts = getPosts();
+
   return (
     <>
       <WalkingStickman />

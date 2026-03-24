@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/constants";
-import { posts } from "@/lib/posts";
+import { getPosts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
-    ...posts.map((post) => ({
+    ...getPosts().map((post) => ({
       url: `${SITE.url}/posts/${post.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,

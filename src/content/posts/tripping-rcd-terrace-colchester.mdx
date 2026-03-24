@@ -1,0 +1,149 @@
+---
+title: "A tripping RCD in a Colchester terrace – where the fault actually was"
+slug: "tripping-rcd-terrace-colchester"
+kicker: "Fault finding · Terraced house"
+excerpt: "A \"just change the breaker\" call-out in a typical Colchester terrace: one 30 mA RCD covering most sockets, with outside loads tipping it over. How we tracked down the real leakage source — and why the RCD itself wasn't the villain."
+readTime: "~7 min read"
+techNote: |
+  ### RCDs, leakage and BS 7671
+
+  In a typical 30 mA RCD-protected system, you'll always have some background earth leakage from filters, appliances and long cable runs. BS 7671 expects RCDs to operate within defined trip times at certain residual currents – the device is there to disconnect when leakage reaches a level that could be harmful.
+
+  The temptation is to blame the RCD and swap it, but unless testing shows the device itself is faulty (failing RCD tests or tripping with no connected load), the more honest approach is to find and fix the sources of leakage first.
+
+  ### Division of installation and shared RCDs
+
+  A common theme in older properties is multiple circuits piled onto a single RCD – rings, kitchen, outside sockets and sheds all sharing one 30 mA device. The Wiring Regulations emphasise sensible division of the installation so a single fault doesn't take out "everything critical" in one go.
+
+  In practice that means:
+
+  - Not relying on one RCD to look after half the house, especially where outside circuits and damp areas are involved.
+  - Considering RCBOs or at least splitting loads so outside and high-leakage circuits don't drag the rest over the edge.
+
+  ### How I'd frame it in a report
+
+  On an EICR or fault report, I'm usually clear about the difference between:
+
+  - *"RCD nuisance tripping due to cumulative leakage from multiple circuits and external loads"*, and
+  - *"RCD/RCBO itself defective or failing testing"*.
+
+  The first needs circuit-level fixes and, ideally, better circuit division. The second needs a new device. Mixing them up either wastes money or hides a fault instead of addressing it.
+---
+
+This one came in as a fairly common request: *"The RCD keeps tripping. Can you just change the breaker?"*
+
+If you've got an RCD that keeps tripping in Colchester or North Essex, bookings are via [Gray Logic Electrical](https://www.graylogic.uk).
+
+It's a typical older Colchester terrace – small consumer unit by the front door, kitchen tacked on at the back, a bit of DIY over the years, and a single 30 mA RCD covering most of the sockets.
+
+They'd already had a couple of suggestions. One was to "upgrade the RCD" because "it must be too sensitive". Another was to "stick a different type in" as if that magically fixes everything.
+
+The reality (as usual) was a bit different.
+
+## What the customer was seeing
+
+Their report, in their own words, was roughly:
+
+- The main RCD would trip "randomly".
+- Sometimes it went as soon as they put the kettle on in the kitchen.
+- Sometimes it was when the washing machine went into its heat cycle.
+- Occasionally it would trip in the middle of the night with "nothing on".
+
+By the time I arrived, half the house was unplugged and they were flicking breakers on and off to "see what helps".
+
+## First step: make it safe and stop guessing
+
+Before any fault-finding, I want a safe starting point and a clear picture of what's actually on that RCD. So:
+
+- **Safe isolation** – confirm supply off, lock off, prove dead.
+- **Consumer unit open** – check the general standard of work: mixed brands in the board, one 30 mA RCD feeding several MCBs plus a cooker on its own RCBO, labels mostly wrong or missing (of course).
+- **Work out what's actually on that RCD**: a ring final doing most of the sockets in the house, kitchen sockets as a leg off the same ring, a spur out to an outside socket and a small shed supply, a boiler on a fused spur from the ring.
+
+Nothing outrageous yet – just what you'd expect in a terrace that's had "a bit added on" in the kitchen and garden over time.
+
+## Insulation resistance: is the wiring broadly healthy?
+
+With everything safely disconnected where needed, I ran insulation resistance tests (L–N to CPC, N–CPC etc.) on the main circuits the RCD was protecting.
+
+The results were "okay but not perfect":
+
+- The main ring had good readings L–N and L–E (nicely into megohms).
+- N–E was a little lower than I'd like but still within a broadly acceptable range for an older installation.
+- The kitchen extensions were similar – nothing screamingly bad.
+
+That told me we weren't dealing with a dead short in the fixed wiring. There was probably some background neutral–earth leakage, but nothing on the test alone that said "this is definitely it".
+
+So I'm not ripping the RCD out yet, and I'm not simply blaming "old wiring" either.
+
+## Recreating the fault: what actually makes it trip?
+
+Next step is always to recreate the fault in a controlled way, rather than keep resetting and hoping for the best.
+
+With the cover back on and everything made safe, I powered up and started loading the installation in a controlled way:
+
+- Boiler on.
+- Fridge-freezer on.
+- A couple of general sockets in use.
+
+Like that, the RCD sat quite happily. The first real clue came when the washing machine went into its heat cycle – as soon as the element kicked in, the RCD tripped.
+
+Unplug the washing machine, reset the RCD, run everything else: no trip.
+
+At this point it'd be very easy (and very common) to just say: *"It's your washing machine, you need a new one."* But I wanted to be sure there wasn't something else dragging everything towards that 30 mA threshold.
+
+## The classic terrace combo: outside sockets and damp
+
+I asked the obvious questions about the outside socket and shed:
+
+- "Does it ever trip when you're using the lawnmower or pressure washer?"
+- "Any issues with the shed power?"
+
+They mentioned a couple of things:
+
+- After heavy rain, the RCD had tripped overnight a few times.
+- There was a budget extension reel permanently plugged into the outside socket, running into the shed to feed a small heater and a couple of chargers.
+
+There's your second suspect.
+
+I isolated and tested the spur to the outside socket and shed. IR on that leg wasn't awful, but it was noticeably lower than the rest of the ring. With loads connected, there was a bit of earth leakage even with switches off.
+
+When I opened the outside socket, the picture became clearer:
+
+- Gasket missing / hanging out, so water wasn't being kept out properly.
+- Evidence of moisture inside and slightly greened terminals.
+- The flex going to the shed had been trapped in the cover – pinched insulation.
+
+Put that together and it starts to make sense: the washing machine is contributing some earth leakage on heat, and the outside socket/shed leg is adding its own leakage when damp. Add the usual background leakage from filters, chargers and electronics, and the installation is living on the edge of that 30 mA RCD limit.
+
+## Why "just change the breaker" is the wrong answer
+
+A lot of people jump straight to swapping the protective device:
+
+- "RCDs go faulty – just change it."
+- "Let's fit a less sensitive one, that'll stop it tripping."
+- "Stick something else in, must be the breaker, right?"
+
+The problem is, in this case the RCD was doing exactly what it's supposed to do – it was seeing enough leakage to trip.
+
+Swapping it for a brand new one without dealing with the underlying leakage doesn't magically fix anything. Fitting something "less sensitive" might stop the nuisance trips, but it does it by looking the other way, not by making the installation safer.
+
+## What we actually did
+
+On this job, the fix wasn't glamorous, but it was honest and repeatable.
+
+- **Outside socket & spur** – replaced the outside socket with a proper, weatherproof unit, re-terminated everything cleanly with the cable properly glanded, and made sure the enclosure actually sealed. Repeat tests showed a clear improvement in insulation resistance and leakage.
+- **Shed supply** – removed the permanent budget extension reel arrangement and put in a more sensible fixed connection so they weren't running flex through door gaps in all weather.
+- **Washing machine** – re-tested with the rest of the circuit in a better state. The machine was still contributing some leakage on heat, but no longer enough on its own to tip the RCD. I gave them straight advice: it's safe to use for now, but when it eventually gets replaced, the overall leakage picture will only improve.
+- **Consumer unit labelling & notes** – updated the circuit schedule so the next person has half a chance, and talked through options for future upgrades (more RCBOs, better separation of circuits) when the board is eventually changed.
+
+After that, we ran it under real conditions – washer heating, kettle on, boiler cycling, shed loads on – and the RCD stayed put.
+
+## The takeaway: terraces remember every little bodge
+
+In older Colchester terraces especially, you tend to see the same pattern repeat:
+
+- Original wiring that's "mostly OK".
+- Small additions over the years – conservatories, outside sockets, sheds, kitchen tweaks.
+- All of it landed on one RCD, with no-one ever looking at the overall leakage.
+
+So when someone says *"The RCD is too sensitive"*, what they often mean is: *"We've gradually added so many little leaks and bodges that the protective device is finally doing what it was designed to do."*
