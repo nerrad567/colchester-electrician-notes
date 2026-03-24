@@ -130,7 +130,7 @@ function ArticleShell({
         </Link>
 
         <header className="relative mt-4 overflow-hidden rounded-xl border border-border bg-gradient-to-br from-panel to-panel-soft p-6 shadow-[0_2px_16px_rgba(0,0,0,0.3)] md:p-8 lg:p-10">
-          <SectionAtmosphere grain={0.06} gridOpacity={0.02} glowColor="amber" glowIntensity={0.04} vignette={false} />
+          <SectionAtmosphere grain={0.10} gridOpacity={0.04} glowColor="amber" glowIntensity={0.06} vignette={false} />
           <div className="relative">
             <p className="mb-2 text-[0.72rem] uppercase tracking-[0.16em] text-accent lg:text-[0.78rem]">
               {post.kicker}
@@ -145,7 +145,7 @@ function ArticleShell({
         </header>
 
         <div className="relative mt-4 overflow-hidden rounded-xl border border-border bg-[radial-gradient(circle_at_top_left,#1e293b_0,#020617_55%,#020617_100%)] p-6 shadow-[0_2px_16px_rgba(0,0,0,0.3)] [html.light_&]:bg-[radial-gradient(circle_at_top_left,#ffffff_0,#f8fafc_65%,#f1f5f9_100%)] md:p-8 lg:p-10 xl:p-12">
-          <SectionAtmosphere grain={0.08} gridOpacity={0.02} glowColor="amber" glowIntensity={0.04} />
+          <SectionAtmosphere grain={0.12} gridOpacity={0.04} glowColor="amber" glowIntensity={0.07} />
           <div className="article-body relative max-w-[720px]">
             {children}
           </div>

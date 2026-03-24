@@ -44,6 +44,15 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="antialiased overflow-x-hidden">
+        {/* Shared SVG grain filter — defined once, referenced by all SectionAtmosphere instances */}
+        <svg className="absolute h-0 w-0" aria-hidden="true">
+          <defs>
+            <filter id="grain-filter">
+              <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+          </defs>
+        </svg>
         <Header />
         <main>{children}</main>
         <Footer />

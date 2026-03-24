@@ -1,6 +1,6 @@
 /**
  * Reusable atmospheric background layers — grain, grid, glow.
- * Each section can dial the intensity and warmth up/down.
+ * References shared SVG filter #grain-filter defined in layout.tsx.
  */
 export function SectionAtmosphere({
   grain = 0.12,
@@ -24,18 +24,13 @@ export function SectionAtmosphere({
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      {/* Vignette */}
       {vignette && (
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.35)_100%)]" />
       )}
 
-      {/* Film grain via SVG */}
+      {/* Film grain — references shared filter from layout */}
       <svg className="absolute inset-0 h-full w-full" style={{ opacity: grain }}>
-        <filter id="sectionGrain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#sectionGrain)" />
+        <rect width="100%" height="100%" filter="url(#grain-filter)" />
       </svg>
 
       {/* Fine grid */}
