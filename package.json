@@ -11,10 +11,19 @@
     "check": "npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "@tiptap/extension-image": "^3.20.4",
+    "@tiptap/extension-link": "^3.20.4",
+    "@tiptap/extension-placeholder": "^3.20.4",
+    "@tiptap/pm": "^3.20.4",
+    "@tiptap/react": "^3.20.4",
+    "@tiptap/starter-kit": "^3.20.4",
     "framer-motion": "^12.37.0",
     "gray-matter": "^4.0.3",
+    "jose": "^6.2.2",
     "lucide-react": "^0.577.0",
     "next": "^16.1.6",
+    "nodemailer": "^8.0.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
@@ -22,6 +31,7 @@
     "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^25.5.0",
+    "@types/nodemailer": "^7.0.11",
     "@types/react": "^19.2.14",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
