@@ -16,6 +16,12 @@ export async function POST(req: NextRequest) {
   if (data.session_days) {
     await setSetting("session_days", data.session_days);
   }
+  if (data.author_name !== undefined) {
+    await setSetting("author_name", data.author_name);
+  }
+  if (data.business_name !== undefined) {
+    await setSetting("business_name", data.business_name);
+  }
 
   return NextResponse.json({ ok: true });
 }

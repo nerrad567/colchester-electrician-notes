@@ -16,13 +16,16 @@ export function ArticleRail({ children }: { children: React.ReactNode }) {
     setCanScrollLeft(el.scrollLeft > 2);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
 
-    // Calculate page indicators
-    const cardWidth = el.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 0;
+    // Calculate page indicators from actual card count
+    const cards = el.querySelectorAll("[data-card]");
+    const cardWidth = (cards[0] as HTMLElement)?.offsetWidth ?? 0;
     const gap = 20;
-    const pairWidth = cardWidth * 2 + gap;
-    if (pairWidth > 0) {
-      const pages = Math.ceil((el.scrollWidth - el.clientWidth) / pairWidth) + 1;
-      const current = Math.round(el.scrollLeft / pairWidth);
+    const isMobile = window.innerWidth < 640;
+    const cardsPerPage = isMobile ? 1 : 2;
+    const pairWidth = isMobile ? cardWidth + gap : cardWidth * 2 + gap;
+    if (cards.length > 0 && pairWidth > 0) {
+      const pages = Math.ceil(cards.length / cardsPerPage);
+      const current = Math.min(Math.round(el.scrollLeft / pairWidth), pages - 1);
       setTotalPages(pages);
       setCurrentPage(current);
     }

@@ -1,16 +1,25 @@
-import { SITE, COMING_SOON } from "@/lib/constants";
-import { getPosts } from "@/lib/posts";
-import { ArticleCard, PlaceholderCard } from "@/components/ArticleCard";
+import { SITE } from "@/lib/constants";
+import { getPublishedPosts } from "@/lib/db";
+import { ArticleCard } from "@/components/ArticleCard";
 import { ArticleRail } from "@/components/ArticleRail";
 import { getHomeStructuredData } from "@/app/structured-data";
 import { SectionAtmosphere } from "@/components/SectionAtmosphere";
 import { WalkingStickman } from "@/components/WalkingStickman";
+import { RefreshListener } from "@/components/RefreshListener";
 
-export default function Home() {
-  const posts = getPosts();
+export default async function Home() {
+  const dbPosts = await getPublishedPosts();
+  const posts = dbPosts.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    kicker: p.kicker,
+    excerpt: p.excerpt,
+    readTime: p.read_time,
+  }));
 
   return (
     <>
+      <RefreshListener />
       <WalkingStickman />
 
       {/* Structured data — static JSON, no user input */}
@@ -38,20 +47,15 @@ export default function Home() {
             On-site notes from a working electrician in Colchester
           </div>
 
-          <h1 className="mb-2 text-4xl font-bold leading-[1.15] text-text md:text-5xl">
-            Real jobs. Real faults.
+          <h1 className="mb-4 text-3xl font-bold leading-[1.2] text-text md:text-4xl">
+            Job notes from a Colchester electrician
           </h1>
-          <p className="mb-4 text-base uppercase tracking-[0.16em] text-accent md:text-lg">
-            No stock photos. Straight answers.
-          </p>
 
           <p className="mb-6 max-w-[580px] text-[0.92rem] leading-relaxed text-muted-strong">
-            I&apos;m Darren at{" "}
-            <strong className="text-text">Gray Logic Electrical</strong> — a
-            NICEIC-registered electrician covering Colchester and North Essex.
-            This isn&apos;t a sales page. It&apos;s a running log of what I see
-            on real jobs: EICRs, consumer units, fault-finding, and the
-            occasional horror show.
+            <strong className="text-text">Gray Logic Electrical</strong> —
+            NICEIC-registered, covering Colchester and North Essex.
+            This is where I write up what I find on jobs: EICRs, fault-finding,
+            consumer units, wiring that should have been sorted years ago.
           </p>
 
           <a
@@ -86,14 +90,6 @@ export default function Home() {
           <ArticleRail>
             {posts.map((post) => (
               <ArticleCard key={post.slug} post={post} />
-            ))}
-            {COMING_SOON.map((item) => (
-              <PlaceholderCard
-                key={item.title}
-                kicker={item.kicker}
-                title={item.title}
-                excerpt={item.excerpt}
-              />
             ))}
           </ArticleRail>
         </div>

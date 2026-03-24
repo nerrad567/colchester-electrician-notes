@@ -9,6 +9,8 @@ export default async function SettingsPage() {
 
   const adminEmail = (await getSetting("admin_email").catch(() => null)) ?? process.env.ADMIN_EMAIL ?? "";
   const sessionDays = (await getSetting("session_days").catch(() => null)) ?? "7";
+  const authorName = (await getSetting("author_name").catch(() => null)) ?? "Darren Gray";
+  const businessName = (await getSetting("business_name").catch(() => null)) ?? "Gray Logic Electrical";
 
   return (
     <div className="mx-auto max-w-[600px] px-6 py-8">
@@ -16,7 +18,12 @@ export default async function SettingsPage() {
         &larr; Back to admin
       </a>
       <h1 className="mt-4 mb-6 text-xl font-bold text-text">Settings</h1>
-      <SettingsForm currentEmail={adminEmail} currentSessionDays={sessionDays} />
+      <SettingsForm
+        currentEmail={adminEmail}
+        currentSessionDays={sessionDays}
+        currentAuthorName={authorName}
+        currentBusinessName={businessName}
+      />
     </div>
   );
 }

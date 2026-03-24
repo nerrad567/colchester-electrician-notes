@@ -119,6 +119,14 @@ html.light body {
   color: var(--color-muted-strong);
 }
 
+.article-body ul {
+  list-style-type: disc;
+}
+
+.article-body ol {
+  list-style-type: decimal;
+}
+
 .article-body li {
   margin-bottom: 0.5rem;
 }
@@ -172,6 +180,81 @@ html.light body {
   0% { transform: translateY(0); }
   50% { transform: translateY(-2px); }
   100% { transform: translateY(0); }
+}
+
+/* Tech note typography — smaller, more compact, reference-style */
+.tech-note-body h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.tech-note-body h3:first-child {
+  margin-top: 0;
+}
+
+.tech-note-body p {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  color: var(--color-muted);
+}
+
+.tech-note-body h2 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.tech-note-body ul,
+.tech-note-body ol {
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.tech-note-body ul {
+  list-style-type: disc;
+}
+
+.tech-note-body ol {
+  list-style-type: decimal;
+}
+
+.tech-note-body li {
+  margin-bottom: 0.35rem;
+}
+
+.tech-note-body strong {
+  color: var(--color-muted-strong);
+  font-weight: 600;
+}
+
+.tech-note-body em {
+  color: var(--color-muted);
+}
+
+.tech-note-body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tech-note-body code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
 }
 
 /* Reduced motion */

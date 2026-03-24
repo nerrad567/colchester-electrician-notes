@@ -2,14 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { getAllSlugs, getPostBySlug, getPosts } from "@/lib/posts";
+import { getPostBySlug, getPublishedPosts, getSetting } from "@/lib/db";
 import { SITE } from "@/lib/constants";
+import { sanitize } from "@/lib/sanitize";
 import { getArticleStructuredData } from "@/app/structured-data";
 import { SectionAtmosphere } from "@/components/SectionAtmosphere";
-
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({
   params,
@@ -17,8 +14,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) return {};
+  const post = await getPostBySlug(slug);
+  if (!post || !post.published) return {};
 
   return {
     title: post.title,
@@ -33,75 +30,46 @@ export async function generateMetadata({
   };
 }
 
-/**
- * Simple markdown to HTML — renders our own local content files only.
- * No user-generated input passes through this function.
- */
-function markdownToHtml(md: string): string {
-  return md
-    .split("\n\n")
-    .map((block) => {
-      const trimmed = block.trim();
-      if (!trimmed) return "";
-      if (trimmed.startsWith("### ")) return `<h3>${inline(trimmed.slice(4))}</h3>`;
-      if (trimmed.startsWith("## ")) return `<h2>${inline(trimmed.slice(3))}</h2>`;
-      if (trimmed.startsWith("> ")) {
-        const text = trimmed.split("\n").map((l) => l.replace(/^>\s?/, "")).join(" ");
-        return `<blockquote>${inline(text)}</blockquote>`;
-      }
-      if (trimmed.match(/^[-*] /m)) {
-        const items = trimmed.split("\n").filter((l) => l.match(/^[-*] /));
-        return `<ul>${items.map((li) => `<li>${inline(li.replace(/^[-*] /, ""))}</li>`).join("")}</ul>`;
-      }
-      if (trimmed.match(/^\d+\. /m)) {
-        const items = trimmed.split("\n").filter((l) => l.match(/^\d+\. /));
-        return `<ol>${items.map((li) => `<li>${inline(li.replace(/^\d+\. /, ""))}</li>`).join("")}</ol>`;
-      }
-      return `<p>${inline(trimmed.replace(/\n/g, " "))}</p>`;
-    })
-    .join("\n");
-}
-
-function inline(text: string): string {
-  return text
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
-}
-
 export default async function ArticlePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
-  if (!post) {
-    const basicPost = getPosts().find((p) => p.slug === slug);
-    if (!basicPost) notFound();
+  if (!post || !post.published) notFound();
 
-    return (
-      <ArticleShell post={{ ...basicPost, slug }}>
-        <p>Article content coming soon — MDX migration in progress.</p>
-      </ArticleShell>
-    );
-  }
+  const authorName = (await getSetting("author_name").catch(() => null)) ?? SITE.author;
+  const businessName = (await getSetting("business_name").catch(() => null)) ?? SITE.business;
 
   return (
-    <ArticleShell post={post}>
-      {/* Render local markdown content as HTML */}
-      <div dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }} />
+    <ArticleShell
+      post={{
+        title: post.title,
+        kicker: post.kicker,
+        readTime: post.read_time,
+        slug: post.slug,
+        excerpt: post.excerpt,
+        techNote: post.tech_note,
+      }}
+      authorName={authorName}
+      businessName={businessName}
+    >
+      <div dangerouslySetInnerHTML={{ __html: sanitize(post.body) }} />
     </ArticleShell>
   );
 }
 
 function ArticleShell({
   post,
+  authorName,
+  businessName,
   children,
 }: {
   post: { title: string; kicker: string; readTime: string; slug: string; excerpt: string; techNote?: string };
+  authorName: string;
+  businessName: string;
   children: React.ReactNode;
 }) {
   return (
@@ -139,7 +107,7 @@ function ArticleShell({
               {post.title}
             </h1>
             <p className="text-[0.78rem] text-muted lg:text-[0.84rem]">
-              {post.readTime} &middot; {SITE.author} &middot; {SITE.business}
+              {post.readTime} &middot; {authorName} &middot; {businessName}
             </p>
           </div>
         </header>
@@ -156,8 +124,8 @@ function ArticleShell({
                 Technical note
               </h2>
               <div
-                className="text-[0.84rem] leading-[1.7] text-muted"
-                dangerouslySetInnerHTML={{ __html: markdownToHtml(post.techNote) }}
+                className="tech-note-body"
+                dangerouslySetInnerHTML={{ __html: sanitize(post.techNote) }}
               />
             </aside>
           )}

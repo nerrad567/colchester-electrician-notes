@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
+import { useToast } from "@/components/Toast";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TiptapLink from "@tiptap/extension-link";
@@ -36,7 +38,20 @@ interface PostData {
 
 export function PostEditor({ initial }: { initial?: PostData }) {
   const router = useRouter();
+  const { toast } = useToast();
   const [saving, setSaving] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  const handleDelete = useCallback(async () => {
+    if (!initial) return;
+    await fetch("/api/admin/posts", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug: initial.slug }),
+    });
+    router.push("/admin");
+    router.refresh();
+  }, [initial, router]);
   const [form, setForm] = useState<PostData>({
     slug: initial?.slug ?? "",
     title: initial?.title ?? "",
@@ -48,17 +63,36 @@ export function PostEditor({ initial }: { initial?: PostData }) {
     published: initial?.published ?? false,
   });
 
+  const techNoteEditor = useEditor({
+    immediatelyRender: false,
+    extensions: [
+      StarterKit.configure({ link: false }),
+      TiptapLink.configure({ openOnClick: false }),
+      Placeholder.configure({ placeholder: "Technical references, regulation details..." }),
+    ],
+    content: form.tech_note,
+    onUpdate: ({ editor: e }) => {
+      setForm((prev) => ({ ...prev, tech_note: e.getHTML() }));
+    },
+    editorProps: {
+      attributes: {
+        class: "tech-note-body outline-none min-h-[150px]",
+      },
+    },
+  });
+
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [
-      StarterKit,
+      StarterKit.configure({ link: false }),
       TiptapLink.configure({ openOnClick: false }),
       TiptapImage,
       Placeholder.configure({ placeholder: "Start writing your article..." }),
     ],
     content: form.body,
     onUpdate: ({ editor: e }) => {
-      setForm((prev) => ({ ...prev, body: e.getHTML() }));
+      const html = e.getHTML();
+      setForm((prev) => ({ ...prev, body: html, read_time: calcReadTime(html) }));
     },
     editorProps: {
       attributes: {
@@ -71,6 +105,13 @@ export function PostEditor({ initial }: { initial?: PostData }) {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
+  function calcReadTime(html: string) {
+    const text = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const words = text.split(" ").filter(Boolean).length;
+    const mins = Math.max(1, Math.ceil(words / 200));
+    return `~${mins} min read`;
+  }
+
   function slugify(title: string) {
     return title
       .toLowerCase()
@@ -81,6 +122,17 @@ export function PostEditor({ initial }: { initial?: PostData }) {
   }
 
   async function handleSave(publish?: boolean) {
+    // Validate required fields
+    const missing: string[] = [];
+    if (!form.title.trim()) missing.push("Title");
+    if (!form.slug.trim()) missing.push("Slug");
+    if (publish && !form.body.trim()) missing.push("Body (cannot publish empty)");
+
+    if (missing.length > 0) {
+      toast("warning", "Missing required fields", missing.join(", "));
+      return;
+    }
+
     setSaving(true);
     const data = { ...form, published: publish ?? form.published };
     try {
@@ -89,11 +141,14 @@ export function PostEditor({ initial }: { initial?: PostData }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Save failed");
+      }
       router.push("/admin");
       router.refresh();
-    } catch {
-      alert("Failed to save");
+    } catch (e) {
+      toast("error", "Failed to save", e instanceof Error ? e.message : "Something went wrong");
     } finally {
       setSaving(false);
     }
@@ -110,12 +165,22 @@ export function PostEditor({ initial }: { initial?: PostData }) {
     <div className="mx-auto max-w-[1400px] px-6 py-6">
       {/* Top bar */}
       <div className="mb-6 flex items-center justify-between">
-        <button
-          onClick={() => router.push("/admin")}
-          className="text-[0.78rem] text-muted hover:text-text transition-colors"
-        >
-          &larr; Back to admin
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => router.push("/admin")}
+            className="text-[0.78rem] text-muted hover:text-text transition-colors"
+          >
+            &larr; Back to admin
+          </button>
+          {initial && (
+            <button
+              onClick={() => setShowDeleteConfirm(true)}
+              className="text-[0.78rem] text-red-400/70 hover:text-red-400 transition-colors"
+            >
+              Delete post
+            </button>
+          )}
+        </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => handleSave(false)}
@@ -179,13 +244,23 @@ export function PostEditor({ initial }: { initial?: PostData }) {
               </div>
               <div>
                 <label className="mb-1 block text-[0.72rem] uppercase tracking-wider text-muted">Kicker</label>
-                <input
-                  type="text"
-                  value={form.kicker}
-                  onChange={(e) => update("kicker", e.target.value)}
-                  className="w-full rounded-lg border border-border bg-bg px-3 py-2 text-[0.84rem] text-text outline-none focus:border-accent-border"
-                  placeholder="EICR · Colchester"
-                />
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={form.kicker}
+                    onChange={(e) => update("kicker", e.target.value)}
+                    className="flex-1 rounded-lg border border-border bg-bg px-3 py-2 text-[0.84rem] text-text outline-none focus:border-accent-border"
+                    placeholder="EICR · Colchester"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => update("kicker", form.kicker + " · ")}
+                    className="shrink-0 rounded-lg border border-border px-3 py-2 text-[0.84rem] text-accent transition-colors hover:border-accent-border hover:bg-accent/10"
+                    title="Insert mid-dot separator"
+                  >
+                    ·
+                  </button>
+                </div>
               </div>
               <div>
                 <label className="mb-1 block text-[0.72rem] uppercase tracking-wider text-muted">Excerpt</label>
@@ -226,16 +301,26 @@ export function PostEditor({ initial }: { initial?: PostData }) {
             </div>
           </div>
 
-          {/* Tech note */}
-          <div className="rounded-xl border border-border bg-panel/50 p-5">
-            <label className="mb-2 block text-[0.72rem] uppercase tracking-wider text-muted">Technical note (optional)</label>
-            <textarea
-              value={form.tech_note}
-              onChange={(e) => update("tech_note", e.target.value)}
-              rows={6}
-              className="w-full resize-y rounded-lg border border-border bg-bg px-3 py-2 text-[0.84rem] leading-relaxed text-text outline-none focus:border-accent-border"
-              placeholder="Technical reference content..."
-            />
+          {/* Tech note rich editor */}
+          <div className="rounded-xl border border-dashed border-accent/30 bg-panel/50">
+            <div className="flex items-center justify-between border-b border-border-soft px-4 py-2">
+              <span className="text-[0.72rem] uppercase tracking-wider text-accent">Technical note (optional)</span>
+              {techNoteEditor && (
+                <div className="flex items-center gap-1">
+                  <TBtn onClick={() => techNoteEditor.chain().focus().toggleBold().run()} active={techNoteEditor.isActive("bold")}><Bold size={13} /></TBtn>
+                  <TBtn onClick={() => techNoteEditor.chain().focus().toggleItalic().run()} active={techNoteEditor.isActive("italic")}><Italic size={13} /></TBtn>
+                  <div className="mx-0.5 h-3 w-px bg-border" />
+                  <TBtn onClick={() => techNoteEditor.chain().focus().toggleHeading({ level: 2 }).run()} active={techNoteEditor.isActive("heading", { level: 2 })}><Heading2 size={13} /></TBtn>
+                  <TBtn onClick={() => techNoteEditor.chain().focus().toggleHeading({ level: 3 }).run()} active={techNoteEditor.isActive("heading", { level: 3 })}><Heading3 size={13} /></TBtn>
+                  <div className="mx-0.5 h-3 w-px bg-border" />
+                  <TBtn onClick={() => techNoteEditor.chain().focus().toggleBulletList().run()} active={techNoteEditor.isActive("bulletList")}><List size={13} /></TBtn>
+                  <TBtn onClick={() => techNoteEditor.chain().focus().toggleOrderedList().run()} active={techNoteEditor.isActive("orderedList")}><ListOrdered size={13} /></TBtn>
+                </div>
+              )}
+            </div>
+            <div className="p-4">
+              <EditorContent editor={techNoteEditor} />
+            </div>
           </div>
         </div>
 
@@ -250,14 +335,44 @@ export function PostEditor({ initial }: { initial?: PostData }) {
             </div>
             {/* Preview body — renders authenticated user's own editor content */}
             <div
-              className="article-body max-h-[60vh] overflow-y-auto text-[0.88rem]"
+              className="article-body max-h-[40vh] overflow-y-auto text-[0.88rem]"
               dangerouslySetInnerHTML={{
                 __html: form.body || "<p style='color:var(--color-muted)'>Start typing to see preview...</p>",
               }}
             />
+
+            {/* Tech note preview */}
+            {form.tech_note && form.tech_note !== "<p></p>" && (
+              <div className="mt-4 rounded-lg border border-dashed border-accent/20 bg-panel/30 p-4">
+                <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  Technical note
+                </p>
+                <div
+                  className="tech-note-body text-[0.8rem] leading-[1.7] text-muted"
+                  dangerouslySetInnerHTML={{ __html: form.tech_note }}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Delete confirmation dialog */}
+      {initial && (
+        <ConfirmDialog
+          open={showDeleteConfirm}
+          title="Delete this post?"
+          message={`"${initial.title}" will be permanently removed. This action cannot be undone.`}
+          advice={initial.published
+            ? "This post is currently live. Deleting it will immediately remove it from your site. Visitors following existing links will see a 404 page."
+            : "This is a draft and hasn't been published yet. No visitors will be affected."}
+          confirmLabel="Delete permanently"
+          cancelLabel="Keep post"
+          variant="danger"
+          onConfirm={handleDelete}
+          onCancel={() => setShowDeleteConfirm(false)}
+        />
+      )}
     </div>
   );
 }

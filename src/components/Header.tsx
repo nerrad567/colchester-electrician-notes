@@ -29,7 +29,6 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 text-xs text-muted md:flex">
           <Link href="/" className="hover:text-text transition-colors">Home</Link>
-          <Link href="/about" className="hover:text-text transition-colors">About</Link>
           <Link href="/disclaimer" className="hover:text-text transition-colors">Disclaimer</Link>
           <a href={SITE.businessUrl} target="_blank" rel="noreferrer" className="hover:text-text transition-colors">
             graylogic.uk
@@ -65,7 +64,6 @@ export function Header() {
         <nav className="border-t border-border bg-bg px-4 py-4 md:hidden">
           <div className="flex flex-col gap-3 text-sm text-muted">
             <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-text transition-colors">Home</Link>
-            <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-text transition-colors">About</Link>
             <Link href="/disclaimer" onClick={() => setMenuOpen(false)} className="hover:text-text transition-colors">Disclaimer</Link>
             <a href={SITE.businessUrl} target="_blank" rel="noreferrer" className="hover:text-text transition-colors">
               graylogic.uk

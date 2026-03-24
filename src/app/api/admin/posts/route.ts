@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getSession } from "@/lib/auth";
 import { getAllPostsFromDB, upsertPost, deletePost } from "@/lib/db";
 
@@ -24,23 +25,21 @@ export async function POST(req: NextRequest) {
 
   const data = await req.json();
 
-  if (!data.slug || !data.title) {
-    return NextResponse.json(
-      { error: "slug and title are required" },
-      { status: 400 }
-    );
+  if (!data.title?.trim()) {
+    return NextResponse.json({ error: "Title is required" }, { status: 400 });
   }
 
-  // Sanitise slug
-  const slug = data.slug
+  const slug = (data.slug || data.title)
     .toLowerCase()
     .replace(/[^a-z0-9-]/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 
+  const title = data.title.trim();
+
   const result = await upsertPost({
     slug,
-    title: data.title ?? "",
+    title,
     kicker: data.kicker ?? "",
     excerpt: data.excerpt ?? "",
     body: data.body ?? "",
@@ -48,6 +47,9 @@ export async function POST(req: NextRequest) {
     read_time: data.read_time ?? "",
     published: data.published ?? false,
   });
+
+  revalidatePath("/", "page");
+  revalidatePath(`/posts/${slug}`, "page");
 
   return NextResponse.json(result[0] ?? { ok: true });
 }
@@ -62,5 +64,9 @@ export async function DELETE(req: NextRequest) {
   }
 
   await deletePost(slug);
+
+  revalidatePath("/", "page");
+  revalidatePath(`/posts/${slug}`, "page");
+
   return NextResponse.json({ ok: true });
 }

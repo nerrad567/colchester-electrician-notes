@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Providers } from "@/components/Providers";
 import { SITE } from "@/lib/constants";
 
 const jetbrainsMono = localFont({
@@ -53,9 +54,11 @@ export default function RootLayout({
             </filter>
           </defs>
         </svg>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

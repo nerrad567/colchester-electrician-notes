@@ -12,12 +12,14 @@ import {
   Pencil,
   Trash2,
 } from "lucide-react";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import type { DBPost } from "@/lib/db";
 
 export function AdminDashboard({ email }: { email: string }) {
   const router = useRouter();
   const [posts, setPosts] = useState<DBPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deleteTarget, setDeleteTarget] = useState<DBPost | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/posts")
@@ -37,14 +39,30 @@ export function AdminDashboard({ email }: { email: string }) {
     router.refresh();
   }
 
-  async function handleDelete(slug: string) {
-    if (!confirm(`Delete "${slug}"? This cannot be undone.`)) return;
+  async function handleTogglePublish(post: DBPost) {
+    const res = await fetch("/api/admin/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...post, published: !post.published }),
+    });
+    if (res.ok) {
+      setPosts((prev) =>
+        prev.map((p) =>
+          p.slug === post.slug ? { ...p, published: !p.published } : p
+        )
+      );
+    }
+  }
+
+  async function handleDelete() {
+    if (!deleteTarget) return;
     await fetch("/api/admin/posts", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug }),
+      body: JSON.stringify({ slug: deleteTarget.slug }),
     });
-    setPosts((prev) => prev.filter((p) => p.slug !== slug));
+    setPosts((prev) => prev.filter((p) => p.slug !== deleteTarget.slug));
+    setDeleteTarget(null);
   }
 
   return (
@@ -105,15 +123,27 @@ export function AdminDashboard({ email }: { email: string }) {
                     <h3 className="truncate text-[0.88rem] font-medium text-text">
                       {post.title}
                     </h3>
-                    {post.published ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-0.5 text-[0.68rem] text-accent">
-                        <Eye size={10} /> Live
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-muted/10 px-2 py-0.5 text-[0.68rem] text-muted">
-                        <EyeOff size={10} /> Draft
-                      </span>
-                    )}
+                    <button
+                      onClick={() => handleTogglePublish(post)}
+                      title={post.published ? "Click to unpublish" : "Click to publish"}
+                      className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.7rem] font-medium transition-all ${
+                        post.published
+                          ? "border-accent/30 bg-accent/10 text-accent hover:border-accent/60 hover:bg-accent/25"
+                          : "border-border bg-muted/10 text-muted hover:border-muted hover:bg-muted/20"
+                      }`}
+                    >
+                      {post.published ? (
+                        <>
+                          <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_4px_rgba(251,191,36,0.6)]" />
+                          Live
+                        </>
+                      ) : (
+                        <>
+                          <span className="h-1.5 w-1.5 rounded-full bg-muted/50" />
+                          Draft
+                        </>
+                      )}
+                    </button>
                   </div>
                   <p className="mt-0.5 text-[0.75rem] text-muted">
                     /{post.slug} &middot; {post.read_time || "no read time"}
@@ -127,7 +157,7 @@ export function AdminDashboard({ email }: { email: string }) {
                     <Pencil size={14} />
                   </Link>
                   <button
-                    onClick={() => handleDelete(post.slug)}
+                    onClick={() => setDeleteTarget(post)}
                     className="rounded-lg border border-border p-2 text-muted transition-colors hover:border-red-500/50 hover:text-red-400"
                   >
                     <Trash2 size={14} />
@@ -139,15 +169,21 @@ export function AdminDashboard({ email }: { email: string }) {
         )}
       </div>
 
-      {/* Settings link */}
-      <div className="mt-6">
-        <Link
-          href="/admin/settings"
-          className="text-[0.78rem] text-muted hover:text-accent transition-colors"
-        >
-          Settings (email, session length)
-        </Link>
-      </div>
+      <ConfirmDialog
+        open={!!deleteTarget}
+        title="Delete this post?"
+        message={deleteTarget ? `"${deleteTarget.title}" will be permanently removed.` : ""}
+        advice={
+          deleteTarget?.published
+            ? "This post is currently live on your site. Deleting it will immediately remove it — any existing links to this article will show a 404 page."
+            : "This is a draft and hasn't been published. No visitors will be affected."
+        }
+        confirmLabel="Delete permanently"
+        cancelLabel="Keep post"
+        variant="danger"
+        onConfirm={handleDelete}
+        onCancel={() => setDeleteTarget(null)}
+      />
     </div>
   );
 }

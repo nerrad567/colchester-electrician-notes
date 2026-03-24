@@ -6,12 +6,18 @@ import { Save, Loader2, CheckCircle } from "lucide-react";
 export function SettingsForm({
   currentEmail,
   currentSessionDays,
+  currentAuthorName,
+  currentBusinessName,
 }: {
   currentEmail: string;
   currentSessionDays: string;
+  currentAuthorName: string;
+  currentBusinessName: string;
 }) {
   const [email, setEmail] = useState(currentEmail);
   const [days, setDays] = useState(currentSessionDays);
+  const [authorName, setAuthorName] = useState(currentAuthorName);
+  const [businessName, setBusinessName] = useState(currentBusinessName);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -20,7 +26,12 @@ export function SettingsForm({
     await fetch("/api/admin/settings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ admin_email: email, session_days: days }),
+      body: JSON.stringify({
+        admin_email: email,
+        session_days: days,
+        author_name: authorName,
+        business_name: businessName,
+      }),
     });
     setSaving(false);
     setSaved(true);
@@ -39,6 +50,31 @@ export function SettingsForm({
           onChange={(e) => setEmail(e.target.value)}
           className="w-full rounded-lg border border-border bg-bg px-3 py-2 text-[0.88rem] text-text outline-none focus:border-accent-border"
         />
+      </div>
+
+      <div className="rounded-xl border border-border bg-panel/50 p-5 space-y-4">
+        <div>
+          <label className="mb-1 block text-[0.72rem] uppercase tracking-wider text-muted">
+            Author name (shown on articles)
+          </label>
+          <input
+            type="text"
+            value={authorName}
+            onChange={(e) => setAuthorName(e.target.value)}
+            className="w-full rounded-lg border border-border bg-bg px-3 py-2 text-[0.88rem] text-text outline-none focus:border-accent-border"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-[0.72rem] uppercase tracking-wider text-muted">
+            Business name (shown on articles)
+          </label>
+          <input
+            type="text"
+            value={businessName}
+            onChange={(e) => setBusinessName(e.target.value)}
+            className="w-full rounded-lg border border-border bg-bg px-3 py-2 text-[0.88rem] text-text outline-none focus:border-accent-border"
+          />
+        </div>
       </div>
 
       <div className="rounded-xl border border-border bg-panel/50 p-5">
