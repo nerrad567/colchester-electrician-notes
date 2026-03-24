@@ -7,6 +7,8 @@ import { SectionAtmosphere } from "@/components/SectionAtmosphere";
 import { WalkingStickman } from "@/components/WalkingStickman";
 import { RefreshListener } from "@/components/RefreshListener";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const dbPosts = await getPublishedPosts();
   const posts = dbPosts.map((p) => ({
