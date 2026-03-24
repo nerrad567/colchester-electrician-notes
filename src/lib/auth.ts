@@ -83,7 +83,7 @@ export async function destroySession() {
 /** Send a magic login link via Migadu SMTP */
 export async function sendMagicLink(email: string, token: string) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const link = `${siteUrl}/admin/verify?token=${token}`;
+  const link = `${siteUrl}/api/admin/verify?token=${token}`;
 
   const transport = nodemailer.createTransport({
     host: process.env.SMTP_HOST ?? "smtp.migadu.com",

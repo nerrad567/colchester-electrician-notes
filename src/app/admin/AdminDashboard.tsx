@@ -23,7 +23,11 @@ export function AdminDashboard({ email }: { email: string }) {
     fetch("/api/admin/posts")
       .then((r) => r.json())
       .then((data) => {
-        setPosts(data);
+        setPosts(Array.isArray(data) ? data : []);
+        setLoading(false);
+      })
+      .catch(() => {
+        setPosts([]);
         setLoading(false);
       });
   }, []);

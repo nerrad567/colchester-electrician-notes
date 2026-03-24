@@ -49,6 +49,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
   });
 
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit,
       TiptapLink.configure({ openOnClick: false }),
