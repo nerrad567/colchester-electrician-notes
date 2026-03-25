@@ -148,3 +148,34 @@ export async function verifyEmailChangeToken(token: string) {
     return null;
   }
 }
+
+/** Send a confirmation email for email address change */
+export async function sendEmailChangeLink(newEmail: string, token: string) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const link = `${siteUrl}/api/admin/verify-email?token=${token}`;
+
+  const transport = nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? "smtp.migadu.com",
+    port: parseInt(process.env.SMTP_PORT ?? "465", 10),
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+
+  await transport.sendMail({
+    from: process.env.SMTP_FROM ?? process.env.SMTP_USER,
+    to: newEmail,
+    subject: "Confirm your new admin email",
+    text: `Click this link to confirm your new admin email address:\n\n${link}\n\nThis link expires in 1 hour. If you didn't request this, ignore this email.`,
+    html: `
+      <div style="font-family: monospace; max-width: 480px; margin: 0 auto; padding: 2rem;">
+        <h2 style="color: #fbbf24; font-size: 1rem;">Confirm Email Change</h2>
+        <p style="color: #e5e7eb; line-height: 1.6;">Click the button below to confirm this as your new admin email address.</p>
+        <a href="${link}" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #fbbf24, #f97316); color: #111827; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 1rem 0;">Confirm email</a>
+        <p style="color: #a1a1aa; font-size: 0.85rem; margin-top: 1.5rem;">This link expires in 1 hour.<br>If you didn't request this, ignore this email.</p>
+      </div>
+    `,
+  });
+}

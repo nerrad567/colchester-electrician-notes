@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { getSession } from "@/lib/auth";
 import { getAllPostsFromDB, upsertPost, deletePost } from "@/lib/db";
+import { verifyCsrf } from "@/lib/csrf";
 
 async function requireAuth() {
   const session = await getSession();
@@ -22,11 +23,32 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const denied = await requireAuth();
   if (denied) return denied;
+  if (!verifyCsrf(req)) {
+    return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+  }
 
   const data = await req.json();
 
   if (!data.title?.trim()) {
     return NextResponse.json({ error: "Title is required" }, { status: 400 });
+  }
+  if (data.title.length > 500) {
+    return NextResponse.json({ error: "Title too long (max 500)" }, { status: 400 });
+  }
+  if ((data.slug ?? "").length > 200) {
+    return NextResponse.json({ error: "Slug too long (max 200)" }, { status: 400 });
+  }
+  if ((data.kicker ?? "").length > 200) {
+    return NextResponse.json({ error: "Kicker too long (max 200)" }, { status: 400 });
+  }
+  if ((data.excerpt ?? "").length > 1000) {
+    return NextResponse.json({ error: "Excerpt too long (max 1000)" }, { status: 400 });
+  }
+  if ((data.body ?? "").length > 512_000) {
+    return NextResponse.json({ error: "Body too large (max 500KB)" }, { status: 400 });
+  }
+  if ((data.tech_note ?? "").length > 64_000) {
+    return NextResponse.json({ error: "Tech note too large (max 64KB)" }, { status: 400 });
   }
 
   const slug = (data.slug || data.title)
@@ -57,6 +79,9 @@ export async function POST(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   const denied = await requireAuth();
   if (denied) return denied;
+  if (!verifyCsrf(req)) {
+    return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+  }
 
   const { slug } = await req.json();
   if (!slug) {
