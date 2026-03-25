@@ -9,6 +9,7 @@ import StarterKit from "@tiptap/starter-kit";
 import TiptapLink from "@tiptap/extension-link";
 import TiptapImage from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
+import { sanitize } from "@/lib/sanitize";
 import {
   Bold,
   Italic,
@@ -67,7 +68,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
     immediatelyRender: false,
     extensions: [
       StarterKit.configure({ link: false }),
-      TiptapLink.configure({ openOnClick: false }),
+      TiptapLink.configure({ openOnClick: false, protocols: ["http", "https", "mailto"], validate: (href: string) => /^https?:\/\/|^mailto:/i.test(href) }),
       Placeholder.configure({ placeholder: "Technical references, regulation details..." }),
     ],
     content: form.tech_note,
@@ -85,7 +86,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
     immediatelyRender: false,
     extensions: [
       StarterKit.configure({ link: false }),
-      TiptapLink.configure({ openOnClick: false }),
+      TiptapLink.configure({ openOnClick: false, protocols: ["http", "https", "mailto"], validate: (href: string) => /^https?:\/\/|^mailto:/i.test(href) }),
       TiptapImage,
       Placeholder.configure({ placeholder: "Start writing your article..." }),
     ],
@@ -337,7 +338,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
             <div
               className="article-body max-h-[40vh] overflow-y-auto text-[0.88rem]"
               dangerouslySetInnerHTML={{
-                __html: form.body || "<p style='color:var(--color-muted)'>Start typing to see preview...</p>",
+                __html: sanitize(form.body) || "<p style='color:var(--color-muted)'>Start typing to see preview...</p>",
               }}
             />
 
@@ -349,7 +350,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
                 </p>
                 <div
                   className="tech-note-body text-[0.8rem] leading-[1.7] text-muted"
-                  dangerouslySetInnerHTML={{ __html: form.tech_note }}
+                  dangerouslySetInnerHTML={{ __html: sanitize(form.tech_note) }}
                 />
               </div>
             )}

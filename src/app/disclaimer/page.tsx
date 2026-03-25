@@ -23,7 +23,7 @@ export default function DisclaimerPage() {
           </h1>
         </header>
 
-        <div className="rounded-xl border border-border bg-panel/50 p-6 backdrop-blur-sm md:p-8">
+        <div className="rounded-xl border border-border bg-panel p-6 md:p-8">
           <div className="max-w-[640px] space-y-4 text-[0.84rem] leading-relaxed text-muted-strong">
             <p>
               The content on this site is written from my experience as a

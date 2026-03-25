@@ -1,10 +1,22 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getSetting } from "@/lib/db";
 import { createMagicLinkToken, sendMagicLink } from "@/lib/auth";
+import { rateLimit } from "@/lib/rate-limit";
 
-export async function POST() {
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+
+export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+
+  if (!(await rateLimit(`login:${ip}`, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS))) {
+    return NextResponse.json(
+      { error: "Too many login attempts. Try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
-    // Get admin email from DB settings, fall back to env var
     const adminEmail =
       (await getSetting("admin_email").catch(() => null)) ??
       process.env.ADMIN_EMAIL;
@@ -19,13 +31,9 @@ export async function POST() {
     const token = await createMagicLinkToken(adminEmail);
     await sendMagicLink(adminEmail, token);
 
-    // Return masked email for UI display
-    const [local, domain] = adminEmail.split("@");
-    const masked = `${local[0]}${"*".repeat(Math.max(local.length - 2, 1))}${local.slice(-1)}@${domain}`;
-
-    return NextResponse.json({ sent: true, email: masked });
+    return NextResponse.json({ sent: true });
   } catch (error) {
-    console.error("Login error:", error);
+    console.error("Login error:", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json(
       { error: "Failed to send login link" },
       { status: 500 }

@@ -25,5 +25,10 @@ export function sanitize(html: string): string {
       div: ["class"],
     },
     allowedSchemes: ["http", "https", "mailto"],
+    transformTags: {
+      a: sanitizeHtml.simpleTransform("a", {
+        rel: "nofollow noopener noreferrer",
+      }),
+    },
   });
 }

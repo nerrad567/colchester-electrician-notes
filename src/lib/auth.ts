@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import nodemailer from "nodemailer";
-import { getSetting } from "./db";
+import { getSetting, storeMagicToken, consumeMagicToken, pruneExpiredTokens } from "./db";
 
 const SECRET = () => {
   const s = process.env.AUTH_SECRET;
@@ -11,20 +11,36 @@ const SECRET = () => {
 
 // ─── Magic Link ──────────────────────────────────────────────────────────────
 
-/** Generate a signed magic link token (15 min expiry) */
+/** Generate a signed magic link token (15 min expiry, single-use via JTI) */
 export async function createMagicLinkToken(email: string) {
-  return new SignJWT({ email, purpose: "magic-link" })
+  const jti = crypto.randomUUID();
+  const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
+
+  await storeMagicToken(jti, expiresAt);
+
+  // Opportunistically prune expired tokens
+  pruneExpiredTokens().catch(() => {});
+
+  return new SignJWT({ email, purpose: "magic-link", jti })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("15m")
     .sign(SECRET());
 }
 
-/** Verify and decode a magic link token */
+/** Verify and decode a magic link token (single-use: consumes the token) */
 export async function verifyMagicLinkToken(token: string) {
   try {
     const { payload } = await jwtVerify(token, SECRET());
     if (payload.purpose !== "magic-link") return null;
+
+    // Enforce single-use via JTI
+    const jti = payload.jti;
+    if (!jti) return null;
+
+    const consumed = await consumeMagicToken(jti);
+    if (!consumed) return null;
+
     return payload.email as string;
   } catch {
     return null;

@@ -13,8 +13,15 @@ export async function POST(req: NextRequest) {
   if (data.admin_email) {
     await setSetting("admin_email", data.admin_email);
   }
-  if (data.session_days) {
-    await setSetting("session_days", data.session_days);
+  if (data.session_days != null) {
+    const days = parseInt(data.session_days, 10);
+    if (isNaN(days) || days < 1 || days > 30) {
+      return NextResponse.json(
+        { error: "session_days must be between 1 and 30" },
+        { status: 400 }
+      );
+    }
+    await setSetting("session_days", String(days));
   }
   if (data.author_name !== undefined) {
     await setSetting("author_name", data.author_name);

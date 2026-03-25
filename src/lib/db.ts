@@ -86,6 +86,32 @@ export async function setSetting(key: string, value: string) {
   );
 }
 
+// ─── Magic Tokens (single-use enforcement) ──────────────────────────────────
+
+export async function storeMagicToken(jti: string, expiresAt: Date) {
+  const sql = getSQL();
+  await sql.query(
+    "INSERT INTO magic_tokens (jti, expires_at) VALUES ($1, $2)",
+    [jti, expiresAt.toISOString()]
+  );
+}
+
+/** Consume a token. Returns true if it existed and was unused, false otherwise. */
+export async function consumeMagicToken(jti: string): Promise<boolean> {
+  const sql = getSQL();
+  const rows = await sql.query(
+    "DELETE FROM magic_tokens WHERE jti = $1 AND consumed = false AND expires_at > now() RETURNING jti",
+    [jti]
+  ) as unknown as { jti: string }[];
+  return rows.length > 0;
+}
+
+/** Clean up expired tokens (called opportunistically) */
+export async function pruneExpiredTokens() {
+  const sql = getSQL();
+  await sql.query("DELETE FROM magic_tokens WHERE expires_at < now()");
+}
+
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 export interface DBPost {

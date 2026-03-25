@@ -4,10 +4,8 @@ import { useState } from "react";
 import { Mail, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 export function LoginForm({
-  maskedEmail,
   error,
 }: {
-  maskedEmail: string;
   error?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -35,8 +33,7 @@ export function LoginForm({
         <h1 className="mb-2 text-lg font-bold text-text">Admin Login</h1>
 
         <p className="mb-6 text-[0.84rem] text-muted">
-          We&apos;ll send a login link to{" "}
-          <span className="text-text">{maskedEmail}</span>
+          We&apos;ll send a login link to the configured admin email.
         </p>
 
         {status === "idle" && (

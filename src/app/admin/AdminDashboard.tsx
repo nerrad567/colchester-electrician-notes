@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Plus,
-  LogOut,
   FileText,
   Eye,
   EyeOff,
@@ -16,7 +14,6 @@ import { ConfirmDialog } from "@/components/ConfirmDialog";
 import type { DBPost } from "@/lib/db";
 
 export function AdminDashboard({ email }: { email: string }) {
-  const router = useRouter();
   const [posts, setPosts] = useState<DBPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<DBPost | null>(null);
@@ -33,11 +30,6 @@ export function AdminDashboard({ email }: { email: string }) {
         setLoading(false);
       });
   }, []);
-
-  async function handleLogout() {
-    await fetch("/api/admin/logout", { method: "POST" });
-    router.refresh();
-  }
 
   async function handleTogglePublish(post: DBPost) {
     const res = await fetch("/api/admin/posts", {
@@ -80,12 +72,6 @@ export function AdminDashboard({ email }: { email: string }) {
           >
             <Plus size={16} /> New post
           </Link>
-          <button
-            onClick={handleLogout}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-[0.78rem] text-muted transition-colors hover:border-accent-border hover:text-text"
-          >
-            <LogOut size={14} /> Logout
-          </button>
         </div>
       </div>
 

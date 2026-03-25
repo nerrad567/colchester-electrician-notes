@@ -2,19 +2,26 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Settings, LayoutDashboard } from "lucide-react";
+import { Menu, X, Settings, LayoutDashboard, LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { SITE } from "@/lib/constants";
 
 export function Header() {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
+  async function handleLogout() {
+    await fetch("/api/admin/logout", { method: "POST" });
+    setIsAdmin(false);
+    router.refresh();
+  }
+
   useEffect(() => {
-    // Check if admin session cookie exists (httpOnly cookies aren't readable,
-    // so we ping the API to check auth status)
-    fetch("/api/admin/posts", { method: "GET" })
-      .then((r) => setIsAdmin(r.ok))
+    fetch("/api/admin/session")
+      .then((r) => r.json())
+      .then((data) => setIsAdmin(data.authenticated === true))
       .catch(() => setIsAdmin(false));
   }, []);
 
@@ -41,6 +48,9 @@ export function Header() {
               <Link href="/admin/settings" className="flex items-center gap-1 text-accent hover:text-accent-strong transition-colors">
                 <Settings size={12} /> Settings
               </Link>
+              <button onClick={handleLogout} className="flex items-center gap-1 text-red-400 hover:text-red-300 transition-colors">
+                <LogOut size={12} /> Logout
+              </button>
             </>
           )}
           <ThemeToggle />
@@ -76,6 +86,9 @@ export function Header() {
                 <Link href="/admin/settings" onClick={() => setMenuOpen(false)} className="flex items-center gap-1.5 text-accent hover:text-accent-strong transition-colors">
                   <Settings size={14} /> Settings
                 </Link>
+                <button onClick={() => { setMenuOpen(false); handleLogout(); }} className="flex items-center gap-1.5 text-red-400 hover:text-red-300 transition-colors">
+                  <LogOut size={14} /> Logout
+                </button>
               </>
             )}
           </div>
