@@ -59,11 +59,11 @@ html.light {
   --shadow-accent: 0 4px 16px rgba(180, 83, 9, 0.25);
   --shadow-accent-hover: 0 8px 24px rgba(180, 83, 9, 0.35);
   --shadow-stripe-ring: 0 0 0 1px rgba(120, 113, 108, 0.4);
-  --atmo-grain: 0.35;
-  --atmo-grid: 0.4;
+  --atmo-grain: 0.55;
+  --atmo-grid: 0.65;
   --atmo-glow: 0.5;
   --atmo-vignette: rgba(0, 0, 0, 0.04);
-  --atmo-grid-color: rgba(180, 83, 9, 0.15);
+  --atmo-grid-color: rgba(180, 83, 9, 0.2);
 }
 
 /* Smooth theme transition */
