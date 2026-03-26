@@ -91,7 +91,7 @@ function ArticleShell({
 
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 xl:px-16">
         <Link
-          href="/#articles"
+          href="/"
           className="mt-6 inline-flex items-center gap-1.5 text-[0.78rem] text-muted hover:text-accent transition-colors"
         >
           <ArrowLeft size={14} /> Back to notes
