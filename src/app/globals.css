@@ -21,13 +21,18 @@
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* Shadow tokens — plain CSS custom properties (not @theme) so complex values work */
+/* Shadow + atmosphere tokens — plain CSS custom properties (not @theme) */
 html {
   --shadow-sm: 0 2px 16px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.4);
   --shadow-accent: 0 12px 28px rgba(248, 181, 0, 0.45);
   --shadow-accent-hover: 0 18px 36px rgba(248, 181, 0, 0.6);
   --shadow-stripe-ring: 0 0 0 1px rgba(15, 23, 42, 0.8);
+  --atmo-grain: 1;
+  --atmo-grid: 1;
+  --atmo-glow: 1;
+  --atmo-vignette: rgba(0, 0, 0, 0.35);
+  --atmo-grid-color: rgba(251, 191, 36, 0.3);
 }
 
 /*
@@ -54,6 +59,11 @@ html.light {
   --shadow-accent: 0 4px 16px rgba(180, 83, 9, 0.25);
   --shadow-accent-hover: 0 8px 24px rgba(180, 83, 9, 0.35);
   --shadow-stripe-ring: 0 0 0 1px rgba(120, 113, 108, 0.4);
+  --atmo-grain: 0.35;
+  --atmo-grid: 0.4;
+  --atmo-glow: 0.5;
+  --atmo-vignette: rgba(0, 0, 0, 0.04);
+  --atmo-grid-color: rgba(180, 83, 9, 0.15);
 }
 
 /* Smooth theme transition */
