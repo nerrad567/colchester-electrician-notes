@@ -57,7 +57,7 @@ body {
 }
 
 html.light body {
-  background: radial-gradient(circle at top, #ffffff 0%, #f1f5f9 55%, #e2e8f0 100%);
+  background: #f8fafc;
 }
 
 /* Hide scrollbar on horizontal rails */
