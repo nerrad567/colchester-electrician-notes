@@ -13,7 +13,7 @@ export function ArticleCard({ post }: { post: CardPost }) {
   return (
     <article
       data-card
-      className="group relative flex w-full shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border border-l-[3px] border-l-accent-border bg-gradient-to-br from-[#141726] via-panel to-[#0f1219] p-5 shadow-[0_2px_16px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-200 hover:-translate-y-1 hover:border-accent-border hover:shadow-[0_12px_40px_rgba(0,0,0,0.4),0_4px_12px_rgba(251,191,36,0.06),inset_0_1px_0_rgba(255,255,255,0.05)] [html.light_&]:from-panel [html.light_&]:via-panel [html.light_&]:to-panel-soft [html.light_&]:border-l-accent/30 [html.light_&]:shadow-[0_1px_4px_rgba(0,0,0,0.06)] [html.light_&]:hover:border-l-accent/50 [html.light_&]:hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] sm:w-[calc(50%-10px)] sm:p-8 lg:rounded-2xl lg:border-l-4 lg:p-10 xl:p-12"
+      className="group relative flex w-full shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border border-l-[3px] border-l-accent-border bg-gradient-to-br from-panel-soft via-panel to-bg-soft p-5 shadow-[var(--shadow-sm)] transition-all duration-200 hover:-translate-y-1 hover:border-accent-border hover:shadow-[var(--shadow-lg)] sm:w-[calc(50%-10px)] sm:p-8 lg:rounded-2xl lg:border-l-4 lg:p-10 xl:p-12"
     >
       <Link
         href={`/posts/${post.slug}`}

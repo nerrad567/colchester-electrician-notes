@@ -36,7 +36,7 @@ export function ConfirmDialog({
       icon: "text-amber-400",
       iconBg: "bg-amber-400/10",
       border: "border-amber-400/20",
-      btn: "bg-amber-500 hover:bg-amber-400 text-[#111827]",
+      btn: "bg-amber-500 hover:bg-amber-400 text-on-accent",
       glow: "rgba(251, 191, 36, 0.08)",
     },
   };
@@ -63,7 +63,7 @@ export function ConfirmDialog({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className={`relative w-full max-w-md rounded-2xl border ${c.border} bg-panel p-0 shadow-[0_20px_60px_rgba(0,0,0,0.5)]`}
+              className={`relative w-full max-w-md rounded-2xl border ${c.border} bg-panel p-0 shadow-[var(--shadow-lg)]`}
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 10 }}

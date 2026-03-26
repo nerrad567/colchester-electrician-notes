@@ -84,7 +84,7 @@ function ToastItem({ toast: t, onDismiss }: { toast: Toast; onDismiss: () => voi
       animate={{ opacity: 1, x: 0, scale: 1 }}
       exit={{ opacity: 0, x: 40, scale: 0.95 }}
       transition={{ type: "spring", damping: 25, stiffness: 300 }}
-      className={`flex w-[340px] items-start gap-3 rounded-xl border ${styles[t.type]} p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-md`}
+      className={`flex w-[340px] items-start gap-3 rounded-xl border ${styles[t.type]} p-4 shadow-[var(--shadow-sm)] backdrop-blur-md`}
     >
       <Icon className={`mt-0.5 h-5 w-5 shrink-0 ${iconColors[t.type]}`} />
       <div className="min-w-0 flex-1">

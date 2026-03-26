@@ -33,12 +33,12 @@ export default async function Home() {
       />
 
       {/* Hero — full width, generous spacing */}
-      <section className="relative overflow-hidden border-b border-border-soft bg-[radial-gradient(ellipse_at_top,#1e293b_0%,#020617_60%,#000_100%)] px-6 pb-10 pt-8 [html.light_&]:bg-bg md:px-10 md:pb-12 md:pt-10 xl:px-16">
+      <section className="relative overflow-hidden border-b border-border-soft bg-[radial-gradient(ellipse_at_top,var(--color-gradient-from)_0%,var(--color-gradient-to)_60%,var(--color-bg)_100%)] px-6 pb-10 pt-8 md:px-10 md:pb-12 md:pt-10 xl:px-16">
         <SectionAtmosphere grain={0.08} gridOpacity={0.03} glowColor="amber" glowIntensity={0.05} />
         <div className="relative mx-auto max-w-[1400px]">
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-lg border border-border bg-bg/60 px-4 py-2 text-[0.74rem] uppercase tracking-[0.12em] text-muted backdrop-blur-sm">
             <span
-              className="h-2 w-5 rounded-sm shadow-[0_0_0_1px_rgba(15,23,42,0.8)] [html.light_&]:shadow-[0_0_0_1px_rgba(120,113,108,0.4)]"
+              className="h-2 w-5 rounded-sm shadow-[var(--shadow-stripe-ring)]"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, #fbbf24 0, #fbbf24 25%, transparent 25%, transparent 50%, #fbbf24 50%, #fbbf24 75%, transparent 75%, transparent 100%)",
@@ -64,7 +64,7 @@ export default async function Home() {
             href={SITE.businessUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center rounded-lg border border-transparent bg-gradient-to-br from-accent to-accent-strong px-6 py-3 text-[0.82rem] font-semibold text-[#111827] shadow-[0_12px_28px_rgba(248,181,0,0.45)] transition-all hover:-translate-y-px hover:shadow-[0_18px_36px_rgba(248,181,0,0.6)] [html.light_&]:text-white [html.light_&]:shadow-[0_4px_16px_rgba(180,83,9,0.25)] [html.light_&]:hover:shadow-[0_8px_24px_rgba(180,83,9,0.35)]"
+            className="inline-flex items-center rounded-lg border border-transparent bg-gradient-to-br from-accent to-accent-strong px-6 py-3 text-[0.82rem] font-semibold text-on-accent shadow-[var(--shadow-accent)] transition-all hover:-translate-y-px hover:shadow-[var(--shadow-accent-hover)]"
           >
             Visit Gray Logic Electrical
           </a>
@@ -127,7 +127,7 @@ export default async function Home() {
             </ul>
           </div>
 
-          <div className="rounded-xl border border-border bg-panel/50 p-6 backdrop-blur-sm [html.light_&]:bg-panel [html.light_&]:shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
+          <div className="rounded-xl border border-border bg-panel p-6 shadow-[var(--shadow-sm)]">
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-muted-strong">
               Where to book work
             </h2>

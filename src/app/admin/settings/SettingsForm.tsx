@@ -96,7 +96,7 @@ export function SettingsForm({
       <button
         onClick={handleSave}
         disabled={saving}
-        className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-2.5 text-[0.82rem] font-semibold text-[#111827] transition-all hover:-translate-y-px disabled:opacity-50"
+        className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-2.5 text-[0.82rem] font-semibold text-on-accent transition-all hover:-translate-y-px disabled:opacity-50"
       >
         {saving ? (
           <Loader2 size={14} className="animate-spin" />

@@ -194,7 +194,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
           <button
             onClick={() => handleSave(true)}
             disabled={saving}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-2 text-[0.82rem] font-semibold text-[#111827] transition-all hover:-translate-y-px disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-2 text-[0.82rem] font-semibold text-on-accent transition-all hover:-translate-y-px disabled:opacity-50"
           >
             {saving ? <Loader2 size={14} className="animate-spin" /> : <Eye size={14} />}
             Publish
@@ -327,7 +327,7 @@ export function PostEditor({ initial }: { initial?: PostData }) {
 
         {/* Right — Live Preview */}
         <div className="hidden lg:block">
-          <div className="sticky top-20 rounded-xl border border-border bg-[radial-gradient(circle_at_top_left,#1e293b_0,#020617_55%,#020617_100%)] p-6 shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
+          <div className="sticky top-20 rounded-xl border border-border bg-[radial-gradient(circle_at_top_left,var(--color-gradient-from)_0,var(--color-gradient-to)_55%,var(--color-gradient-to)_100%)] p-6 shadow-[var(--shadow-sm)]">
             <p className="mb-4 text-[0.68rem] uppercase tracking-widest text-muted">Preview</p>
             <div className="mb-4 rounded-lg border border-border bg-panel/30 p-4">
               {form.kicker && <p className="mb-1 text-[0.72rem] uppercase tracking-[0.16em] text-accent">{form.kicker}</p>}

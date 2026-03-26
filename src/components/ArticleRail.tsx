@@ -108,7 +108,7 @@ export function ArticleRail({ children }: { children: React.ReactNode }) {
             onClick={() => scroll(-1)}
             disabled={!canScrollLeft}
             aria-label="Previous articles"
-            className="rounded-lg border border-border bg-panel/60 px-3 py-2 text-muted backdrop-blur-sm transition-all hover:border-accent/40 hover:text-text disabled:pointer-events-none disabled:opacity-30 [html.light_&]:bg-panel [html.light_&]:text-muted-strong"
+            className="rounded-lg border border-border bg-panel px-3 py-2 text-muted transition-all hover:border-accent/40 hover:text-text disabled:pointer-events-none disabled:opacity-30"
           >
             <ChevronLeft size={18} />
           </button>
@@ -116,7 +116,7 @@ export function ArticleRail({ children }: { children: React.ReactNode }) {
             onClick={() => scroll(1)}
             disabled={!canScrollRight}
             aria-label="Next articles"
-            className="rounded-lg border border-border bg-panel/60 px-3 py-2 text-muted backdrop-blur-sm transition-all hover:border-accent/40 hover:text-text disabled:pointer-events-none disabled:opacity-30 [html.light_&]:bg-panel [html.light_&]:text-muted-strong"
+            className="rounded-lg border border-border bg-panel px-3 py-2 text-muted transition-all hover:border-accent/40 hover:text-text disabled:pointer-events-none disabled:opacity-30"
           >
             <ChevronRight size={18} />
           </button>

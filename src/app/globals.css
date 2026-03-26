@@ -13,15 +13,25 @@
   --color-accent-border: rgba(249, 115, 22, 0.6);
   --color-border: #27272f;
   --color-border-soft: #1c1c24;
+  --color-gradient-from: #1e293b;
+  --color-gradient-to: #020617;
+  --color-on-accent: #111827;
   --radius-md: 8px;
   --radius-lg: 14px;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+/* Shadow tokens — plain CSS custom properties (not @theme) so complex values work */
+html {
+  --shadow-sm: 0 2px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.4);
+  --shadow-accent: 0 12px 28px rgba(248, 181, 0, 0.45);
+  --shadow-accent-hover: 0 18px 36px rgba(248, 181, 0, 0.6);
+  --shadow-stripe-ring: 0 0 0 1px rgba(15, 23, 42, 0.8);
+}
+
 /*
- * Light mode
- *
- * Slate-cool backgrounds, warm text to match the dark mode's amber warmth.
+ * Light mode — warm parchment palette
  */
 html.light {
   --color-bg: #f0ece6;
@@ -36,6 +46,14 @@ html.light {
   --color-accent-border: rgba(180, 83, 9, 0.3);
   --color-border: #d6d0c8;
   --color-border-soft: #e0dbd4;
+  --color-gradient-from: #f5f2ed;
+  --color-gradient-to: #f0ece6;
+  --color-on-accent: #ffffff;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-accent: 0 4px 16px rgba(180, 83, 9, 0.25);
+  --shadow-accent-hover: 0 8px 24px rgba(180, 83, 9, 0.35);
+  --shadow-stripe-ring: 0 0 0 1px rgba(120, 113, 108, 0.4);
 }
 
 /* Smooth theme transition */
@@ -53,14 +71,10 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at top, #111827 0%, #020617 55%, #000 100%);
+  background: radial-gradient(circle at top, var(--color-gradient-from) 0%, var(--color-gradient-to) 55%, var(--color-bg) 100%);
   color: var(--color-text);
   font-family: var(--font-mono);
   min-height: 100vh;
-}
-
-html.light body {
-  background: #f0ece6;
 }
 
 /* Hide scrollbar on horizontal rails */

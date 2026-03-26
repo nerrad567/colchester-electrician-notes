@@ -25,7 +25,7 @@ export function LoginForm({
 
   return (
     <div className="flex min-h-[80vh] items-center justify-center px-4">
-      <div className="w-full max-w-sm rounded-xl border border-border bg-panel p-8 text-center shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
+      <div className="w-full max-w-sm rounded-xl border border-border bg-panel p-8 text-center shadow-[var(--shadow-sm)]">
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
           <Mail className="h-6 w-6 text-accent" />
         </div>
@@ -39,7 +39,7 @@ export function LoginForm({
         {status === "idle" && (
           <button
             onClick={handleLogin}
-            className="w-full rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-3 text-[0.84rem] font-semibold text-[#111827] transition-all hover:-translate-y-px hover:shadow-[0_8px_20px_rgba(248,181,0,0.4)]"
+            className="w-full rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-3 text-[0.84rem] font-semibold text-on-accent transition-all hover:-translate-y-px hover:shadow-[var(--shadow-accent)]"
           >
             Send login link
           </button>

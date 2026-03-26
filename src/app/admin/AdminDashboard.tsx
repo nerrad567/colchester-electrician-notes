@@ -68,7 +68,7 @@ export function AdminDashboard({ email }: { email: string }) {
         <div className="flex items-center gap-3">
           <Link
             href="/admin/posts/new"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-2 text-[0.82rem] font-semibold text-[#111827] transition-all hover:-translate-y-px"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-br from-accent to-accent-strong px-4 py-2 text-[0.82rem] font-semibold text-on-accent transition-all hover:-translate-y-px"
           >
             <Plus size={16} /> New post
           </Link>
