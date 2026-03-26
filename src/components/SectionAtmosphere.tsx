@@ -1,6 +1,8 @@
 /**
  * Reusable atmospheric background layers — grain, grid, glow.
  * References shared SVG filter #grain-filter defined in layout.tsx.
+ *
+ * In light mode, all effects are hidden to keep the page clean.
  */
 export function SectionAtmosphere({
   grain = 0.12,
@@ -23,19 +25,19 @@ export function SectionAtmosphere({
   const glow = glowColors[glowColor];
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden [html.light_&]:hidden" aria-hidden="true">
       {vignette && (
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.35)_100%)] [html.light_&]:bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.04)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.35)_100%)]" />
       )}
 
       {/* Film grain — references shared filter from layout */}
-      <svg className="absolute inset-0 h-full w-full [html.light_&]:opacity-[0.03]" style={{ opacity: grain }}>
+      <svg className="absolute inset-0 h-full w-full" style={{ opacity: grain }}>
         <rect width="100%" height="100%" filter="url(#grain-filter)" />
       </svg>
 
       {/* Fine grid */}
       <div
-        className="absolute inset-0 [html.light_&]:opacity-[0.02]"
+        className="absolute inset-0"
         style={{
           opacity: gridOpacity,
           backgroundImage:
@@ -46,7 +48,7 @@ export function SectionAtmosphere({
 
       {/* Central glow */}
       <div
-        className="absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] [html.light_&]:opacity-30"
+        className="absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]"
         style={{ backgroundColor: `${glow}${glowIntensity})` }}
       />
     </div>

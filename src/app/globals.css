@@ -24,18 +24,18 @@
  * Slate-cool backgrounds, warm text to match the dark mode's amber warmth.
  */
 html.light {
-  --color-bg: #f5f5f4;
-  --color-bg-soft: #eeeceb;
+  --color-bg: #faf8f5;
+  --color-bg-soft: #f3f0ec;
   --color-panel: #ffffff;
-  --color-panel-soft: #fafaf9;
+  --color-panel-soft: #fdfcfa;
   --color-text: #1c1917;
   --color-muted: #57534e;
   --color-muted-strong: #292524;
-  --color-accent: #d97706;
-  --color-accent-strong: #c2410c;
-  --color-accent-border: rgba(217, 119, 6, 0.5);
-  --color-border: #d6d3d1;
-  --color-border-soft: #e7e5e4;
+  --color-accent: #b45309;
+  --color-accent-strong: #92400e;
+  --color-accent-border: rgba(180, 83, 9, 0.4);
+  --color-border: #d6d0c8;
+  --color-border-soft: #e8e3dc;
 }
 
 /* Smooth theme transition */
@@ -60,7 +60,7 @@ body {
 }
 
 html.light body {
-  background: #f5f5f4;
+  background: #faf8f5;
 }
 
 /* Hide scrollbar on horizontal rails */

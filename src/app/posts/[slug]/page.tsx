@@ -112,7 +112,7 @@ function ArticleShell({
           </div>
         </header>
 
-        <div className="relative mt-4 overflow-hidden rounded-xl border border-border bg-[radial-gradient(circle_at_top_left,#1e293b_0,#020617_55%,#020617_100%)] p-6 shadow-[0_2px_16px_rgba(0,0,0,0.3)] [html.light_&]:bg-[radial-gradient(circle_at_top_left,#ffffff_0,#f8fafc_65%,#f1f5f9_100%)] md:p-8 lg:p-10 xl:p-12">
+        <div className="relative mt-4 overflow-hidden rounded-xl border border-border bg-[radial-gradient(circle_at_top_left,#1e293b_0,#020617_55%,#020617_100%)] p-6 shadow-[0_2px_16px_rgba(0,0,0,0.3)] [html.light_&]:border-[#d6d0c8] [html.light_&]:bg-white [html.light_&]:shadow-[0_1px_4px_rgba(0,0,0,0.08)] md:p-8 lg:p-10 xl:p-12">
           <SectionAtmosphere grain={0.12} gridOpacity={0.04} glowColor="amber" glowIntensity={0.07} />
           <div className="article-body relative max-w-[720px]">
             {children}

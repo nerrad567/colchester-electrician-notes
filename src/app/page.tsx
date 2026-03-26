@@ -33,10 +33,10 @@ export default async function Home() {
       />
 
       {/* Hero — full width, generous spacing */}
-      <section className="relative overflow-hidden border-b border-border-soft bg-[radial-gradient(ellipse_at_top,#1e293b_0%,#020617_60%,#000_100%)] px-6 pb-10 pt-8 [html.light_&]:bg-[radial-gradient(ellipse_at_top,#e7e5e4_0%,#f5f5f4_100%)] md:px-10 md:pb-12 md:pt-10 xl:px-16">
+      <section className="relative overflow-hidden border-b border-border-soft bg-[radial-gradient(ellipse_at_top,#1e293b_0%,#020617_60%,#000_100%)] px-6 pb-10 pt-8 [html.light_&]:bg-[radial-gradient(ellipse_at_top,#f0ece6_0%,#faf8f5_100%)] md:px-10 md:pb-12 md:pt-10 xl:px-16">
         <SectionAtmosphere grain={0.08} gridOpacity={0.03} glowColor="amber" glowIntensity={0.05} />
         <div className="relative mx-auto max-w-[1400px]">
-          <div className="mb-4 inline-flex items-center gap-2.5 rounded-lg border border-border bg-bg/60 px-4 py-2 text-[0.74rem] uppercase tracking-[0.12em] text-muted backdrop-blur-sm">
+          <div className="mb-4 inline-flex items-center gap-2.5 rounded-lg border border-border bg-bg/60 px-4 py-2 text-[0.74rem] uppercase tracking-[0.12em] text-muted backdrop-blur-sm [html.light_&]:border-[#d6d0c8] [html.light_&]:bg-white/60 [html.light_&]:text-[#57534e]">
             <span
               className="h-2 w-5 rounded-sm shadow-[0_0_0_1px_rgba(15,23,42,0.8)] [html.light_&]:shadow-[0_0_0_1px_rgba(120,113,108,0.4)]"
               style={{
@@ -49,12 +49,12 @@ export default async function Home() {
             On-site notes from a working electrician in Colchester
           </div>
 
-          <h1 className="mb-4 text-3xl font-bold leading-[1.2] text-text md:text-4xl">
+          <h1 className="mb-4 text-3xl font-bold leading-[1.2] text-text [html.light_&]:text-[#1c1917] md:text-4xl">
             Job notes from a Colchester electrician
           </h1>
 
-          <p className="mb-6 max-w-[580px] text-[0.92rem] leading-relaxed text-muted-strong">
-            <strong className="text-text">Gray Logic Electrical</strong> —
+          <p className="mb-6 max-w-[580px] text-[0.92rem] leading-relaxed text-muted-strong [html.light_&]:text-[#44403c]">
+            <strong className="text-text [html.light_&]:text-[#1c1917]">Gray Logic Electrical</strong> —
             NICEIC-registered, covering Colchester and North Essex.
             This is where I write up what I find on jobs: EICRs, fault-finding,
             consumer units, wiring that should have been sorted years ago.
@@ -64,7 +64,7 @@ export default async function Home() {
             href={SITE.businessUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center rounded-lg border border-transparent bg-gradient-to-br from-accent to-accent-strong px-6 py-3 text-[0.82rem] font-semibold text-[#111827] shadow-[0_12px_28px_rgba(248,181,0,0.45)] transition-all hover:-translate-y-px hover:shadow-[0_18px_36px_rgba(248,181,0,0.6)] [html.light_&]:text-white [html.light_&]:shadow-[0_4px_16px_rgba(217,119,6,0.25)] [html.light_&]:hover:shadow-[0_8px_24px_rgba(217,119,6,0.35)]"
+            className="inline-flex items-center rounded-lg border border-transparent bg-gradient-to-br from-accent to-accent-strong px-6 py-3 text-[0.82rem] font-semibold text-[#111827] shadow-[0_12px_28px_rgba(248,181,0,0.45)] transition-all hover:-translate-y-px hover:shadow-[0_18px_36px_rgba(248,181,0,0.6)] [html.light_&]:text-white [html.light_&]:shadow-[0_4px_16px_rgba(180,83,9,0.25)] [html.light_&]:hover:shadow-[0_8px_24px_rgba(180,83,9,0.35)]"
           >
             Visit Gray Logic Electrical
           </a>
