@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-bg: #050507;
   --color-bg-soft: #0d0f16;
   --color-panel: #111320;
@@ -24,18 +24,18 @@
  * Slate-cool backgrounds, warm text to match the dark mode's amber warmth.
  */
 html.light {
-  --color-bg: #faf8f5;
-  --color-bg-soft: #f3f0ec;
-  --color-panel: #ffffff;
-  --color-panel-soft: #fdfcfa;
+  --color-bg: #f0ece6;
+  --color-bg-soft: #e8e4dd;
+  --color-panel: #faf8f5;
+  --color-panel-soft: #f5f2ed;
   --color-text: #1c1917;
   --color-muted: #57534e;
   --color-muted-strong: #292524;
   --color-accent: #b45309;
   --color-accent-strong: #92400e;
-  --color-accent-border: rgba(180, 83, 9, 0.4);
+  --color-accent-border: rgba(180, 83, 9, 0.3);
   --color-border: #d6d0c8;
-  --color-border-soft: #e8e3dc;
+  --color-border-soft: #e0dbd4;
 }
 
 /* Smooth theme transition */
@@ -60,7 +60,7 @@ body {
 }
 
 html.light body {
-  background: #faf8f5;
+  background: #f0ece6;
 }
 
 /* Hide scrollbar on horizontal rails */
