@@ -26,7 +26,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md [html.light_&]:border-[#e2e8f0] [html.light_&]:bg-white/90">
+    <header className="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md [html.light_&]:bg-[#f5f5f4]/90">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 text-sm font-bold text-text hover:text-accent transition-colors">
           <span className="inline-block h-3 w-3 rounded-sm bg-accent" aria-hidden="true" />
