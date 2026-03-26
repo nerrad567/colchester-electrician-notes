@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -43,6 +44,17 @@ export default function RootLayout({
     <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <Script
+          defer
+          src="https://analytics.digital.graylogic.uk/js/pa-Z138c06uqUS2dGQp3V42r.js"
+          strategy="afterInteractive"
+        />
+        {/* Plausible init — hardcoded string, no user input, safe to inline */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`,
+          }}
+        />
       </head>
       <body className="antialiased overflow-x-hidden">
         {/* Shared SVG grain filter — defined once, referenced by all SectionAtmosphere instances */}
